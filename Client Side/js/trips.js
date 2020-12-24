@@ -3,13 +3,21 @@ $(function() {
 });
 
 function getAllTrips(){
-// function getAllTrips(city){
     $.ajax({
         url: 'http://localhost:5050/api/trips',
         type: 'GET',
         success: function(trips){
             showAllTrips(trips);
-            // filterCity(trips, city);
+        }
+    });
+}
+
+function getAllTripCity(city){
+    $.ajax({
+        url: 'http://localhost:5050/api/trips',
+        type: 'GET',
+        success: function(trips){
+            filterCity(trips, city);
         }
     });
 }
@@ -135,14 +143,13 @@ function filterCity(trip, city){
 
 
 function operationsListeners(){
-
     $("#get-all-t").click(() => {
         $("#trips-result").empty();
         $("form").css("display", "block");
         $("#get-delete-form").css("display", "none");
         $("#put-post-form").css("display", "none");
         $("#submit").css("display", "none");
-        $("#get-filter").css("display", "none");
+        $("#filter-city").css("display", "none");
         getAllTrips();
     });
 
@@ -213,7 +220,6 @@ function operationsListeners(){
         } 
         else if ($("#submit").text() === "Add") {
             const info = {
-                // name: $("#trip-name").val(),
                 tour_guide: $("#trip-tour-guide").val(),
                 trip_name_city:  $("#trip-name-city").val(),
                 tour_date:  $("#trips-tour-date").val(),
@@ -226,7 +232,6 @@ function operationsListeners(){
         else if ($("#submit").text() === "Update") {
             const tripId = $("#trip-id").val();
             const info = {
-                // name: $("#trip-name").val(),
                 tour_guide: $("#trip-tour-guide").val(),
                 trip_name_city:  $("#trip-name-city").val(),
                 tour_date:  $("#trips-tour-date").val(),
@@ -238,17 +243,8 @@ function operationsListeners(){
         }
 
         else if($("#submit").text() === "Filter"){
-            if($("#filter-city").val() === "Berlin"){
-                const city = $("#filter-city").val();
-                console.log("Berlin");
-                // getAllTrips(city);
-            }
-            else if($("#filter-city").val() === "London"){
-                console.log("London");
-            }
-            else if($("#filter-city").val() === "Tel-Aviv"){
-                console.log("Tel-Aviv");
-            }
+            const city = $("#filter-city").val();
+            getAllTripCity(city);
         }
     });
 }

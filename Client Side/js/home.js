@@ -7,7 +7,7 @@ function navigate(){
         $(location).attr('href',"./trips.html");
     });
 
-    $("#users").click(() => {
-        $(location).attr('href',"./users.html");
-    });
+    // $("#users").click(() => {
+    //     $(location).attr('href',"./traveler.html");
+    // });
 }

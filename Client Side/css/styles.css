@@ -9,25 +9,10 @@ header, main, footer, nav, aside, section, div  {
 
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    width:300px;
 }
 
-form{
-    display: none;
-}
-/* 
-#wrapper h1, 
-#wrapper h2 {
-    text-align: center;
-}
-
-#content {
-    display: flex;
-}
-
-#restaurants-list,
-#restaurant-operations {
-    width: 50%;
-} */
 
 #submit {
     width: 80px;
@@ -35,21 +20,14 @@ form{
     justify-content: space-around;
 }
 
-/* #restaurant-operations button {
-    width: 80px;
-} */
+form{
+    margin-top: 20px;
+}
+
 
 form,
 #put-post-form,
 #get-delete-form {
-    width: 270px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
+    display:none;
 }
 
-form, 
-#put-post-form,
-#get-delete-form {
-    display: none;
-}
