@@ -66,7 +66,6 @@ function updateTrip(trip) {
 }
 
 function addNewTrip(trip) {
-    // console.log("trip");
     $("#trips-result").empty();
 
     $("#trips-result").append(
