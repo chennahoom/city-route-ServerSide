@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5050;
-const { userRouter } = require("../server_side/Routers/user.router");
-const { tripRouter } = require("../server_side/Routers/trip.router");
+const { userRouter } = require("../Server Side/Routers/user.router");
+const { tripRouter } = require("../Server Side/Routers/trip.router");
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const consts = require('../server_side/constants');
+const consts = require('../Server Side/constants');
 const { DB_HOST, DB_USER, DB_PASS } = consts;
 const url = DB_HOST;
 const options = {
