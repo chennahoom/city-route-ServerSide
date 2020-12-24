@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="js/trips.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/styles.css"/>
+        
+        <title>City Route - trips</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Trips - CRUD</h2>
+            <button type="button" class="btn btn-primary" id=get-all-t>Get all</button>
+            <button type="button" class="btn btn-success" id=get-by-id-t>Get by id</button>
+            <button type="button" class="btn btn-info" id=add-t>Add</button>
+            <button type="button" class="btn btn-warning" id=update-t>Update</button>
+            <button type="button" class="btn btn-danger" id=delete-t>Delete</button>
+            <button type="button" class="btn btn-dark" id=filter>Filter</button>
+        </div>
+
+        
+        <form>
+            <section id="get-filter">
+                <labal>
+                    City:
+                    <select name="filter-city" id="filter-city">
+                        <option value="choose" selected="Choose">Choose City</option>
+                        <option value="Berlin">Berlin</option>
+                        <option value="London">London</option>
+                        <option value="Tel-Aviv">Tel-Aviv</option>
+                    </select>
+                </labal>
+            </section>
+
+            <section id="get-delete-form">
+                ID: <input type="text" id="trip-id" name="trip-id"/>
+            </section>
+            <section id="put-post-form">
+                <!-- Name: <input type="text" id="trip-name" name="trip-name"/><br> -->
+                Tour guide: <input type="text" id="trip-tour-guide" name="trip-tour-guide"/><br>
+                Name city: <input type="text" id="trip-name-city" name="trip-name-city"/><br>
+                Tour date: <input type="text" id="trips-tour-date" name="trips-tour-date"/><br>
+                Tour time: <input type="text" id="trips-tour-time" name="trips-tour-time"/><br>
+                <label>
+                    Start time:
+                    <select name="trips-start-time" id="trips-start-time">
+                        <!-- <option value="18-22" selected="selected">18-22</option> -->
+                        <option value="start-time" selected="start-time">Start time</option>
+                        <option value="09:00 AM">09:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="01:00 PM">01:00 PM</option>
+                        <option value="02:00 PM">02:00 PM</option>
+                        <option value="03:00 PM">03:00 PM</option>
+                        <option value="04:00 PM">04:00 PM</option>
+                        <option value="05:00 PM">05:00 PM</option>
+                        <option value="06:00 PM">06:00 PM</option>
+                        <option value="07:00 PM">07:00 PM</option>
+                        <option value="08:00 PM">08:00 PM</option>
+                    </select>
+                </label><br>
+                Spaces left: <input type="text" id="trips-spaces-left" name="trips-spaces-left"/><br>
+            </section>
+            <button type="button" class="btn btn-primary" id="submit"></button>
+            <section id="trips-result"></section>
+            <section id="All-trips"></section>
+        </section>
+    </body>
+</html>
