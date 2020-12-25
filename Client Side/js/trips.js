@@ -4,7 +4,7 @@ $(function() {
 
 function getAllTrips(){
     $.ajax({
-        url: 'http://localhost:5050/api/trips',
+        url: 'http://localhost:5000/api/trips',
         type: 'GET',
         success: function(trips){
             showAllTrips(trips);
@@ -14,7 +14,7 @@ function getAllTrips(){
 
 function getAllTripCity(city){
     $.ajax({
-        url: 'http://localhost:5050/api/trips',
+        url: 'http://localhost:5000/api/trips',
         type: 'GET',
         success: function(trips){
             filterCity(trips, city);
@@ -24,7 +24,7 @@ function getAllTripCity(city){
 
 function getTripById(tripId) {
     $.ajax({
-        url: `http://localhost:5050/api/trips/${tripId}`,
+        url: `http://localhost:5000/api/trips/${tripId}`,
         type: 'GET',
         success: function(trip) {
             showTrip(trip);
@@ -34,7 +34,7 @@ function getTripById(tripId) {
 
 function deleteTripById(tripId) {
     $.ajax({
-        url: `http://localhost:5050/api/trips/${tripId}`,
+        url: `http://localhost:5000/api/trips/${tripId}`,
         type: 'DELETE',
         success: function(trip) {
             deleteTrip(trip);
@@ -44,7 +44,7 @@ function deleteTripById(tripId) {
 
 function addTrip(info) {
     $.ajax({
-        url: `http://localhost:5050/api/trips`,
+        url: `http://localhost:5000/api/trips`,
         type: 'POST',
         data: info,
         success: function(trip) {
@@ -55,7 +55,7 @@ function addTrip(info) {
 
 function updateTripById(tripId, info) {
     $.ajax({
-        url: `http://localhost:5050/api/trips/${tripId}`,
+        url: `http://localhost:5000/api/trips/${tripId}`,
         type: 'PUT',
         data: info,
         success: function(data) {
@@ -65,7 +65,6 @@ function updateTripById(tripId, info) {
 }
 
 function updateTrip(trip) {
-    console.log();
     $("#trips-result").empty();
     $("#trips-result").append(
         '<p>Trip number '+ trip.id +' was succesfully updated <p>'
@@ -149,7 +148,7 @@ function operationsListeners(){
         $("#get-delete-form").css("display", "none");
         $("#put-post-form").css("display", "none");
         $("#submit").css("display", "none");
-        $("#filter-city").css("display", "none");
+        $("#get-filter").css("display", "none");
         getAllTrips();
     });
 
@@ -248,7 +247,3 @@ function operationsListeners(){
         }
     });
 }
-
-
-
-
