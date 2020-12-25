@@ -12,12 +12,12 @@ function getAllTrips(){
     });
 }
 
-function getAllTripCity(city){
+function getAllTripCity(city, dstart,dend){
     $.ajax({
         url: 'http://localhost:5000/api/trips',
         type: 'GET',
         success: function(trips){
-            filterCity(trips, city);
+            filterCity(trips, city, dstart,dend);
         }
     });
 }
@@ -121,20 +121,80 @@ function deleteTrip(trip) {
     getAllTrips();
 }
 
-function filterCity(trip, city){
+
+
+
+function filterCity(trip, city, dstart, dend){
+    var fDate,lDate,cDate;
+    fDate = dstart.split('/');
+    lDate = dend.split('/');
     trip.forEach(trip => {
         if(trip.trip_name_city === city){
-            $("#All-trips").append(
-                '<p>' +
-                'ID: ' + trip.id + '<br>' +
-                'tour guide: ' + trip.tour_guide + '<br>' +
-                'trip name city: '  + trip.trip_name_city + '<br>' +
-                'tour date: ' + trip.tour_date + '<br>' +
-                'tour time: ' + trip.tour_time + '<br>' +
-                'start time: ' + trip.start_time + '<br>' +
-                'spaces left: ' + trip.spaces_left + '<br>' +
-                '<br><p>'    
-            );
+            cDate = trip.tour_date.split('/');
+            if(cDate[2] < lDate[2] && cDate[2] > fDate[2]){
+                console.log(trip.id);
+                $("#All-trips").append(
+                    '<p>' +
+                    'ID: ' + trip.id + '<br>' +
+                    'tour guide: ' + trip.tour_guide + '<br>' +
+                    'trip name city: '  + trip.trip_name_city + '<br>' +
+                    'tour date: ' + trip.tour_date + '<br>' +
+                    'tour time: ' + trip.tour_time + '<br>' +
+                    'start time: ' + trip.start_time + '<br>' +
+                    'spaces left: ' + trip.spaces_left + '<br>' +
+                    '<br><p>'    
+                );
+            }
+            else if(cDate[2] == lDate[2] || cDate[2] == fDate[2]){
+                if (cDate[1] < lDate[1] && cDate[1] > fDate[1]){
+                console.log(trip.id);
+
+                    $("#All-trips").append(
+                        '<p>' +
+                        'ID: ' + trip.id + '<br>' +
+                        'tour guide: ' + trip.tour_guide + '<br>' +
+                        'trip name city: '  + trip.trip_name_city + '<br>' +
+                        'tour date: ' + trip.tour_date + '<br>' +
+                        'tour time: ' + trip.tour_time + '<br>' +
+                        'start time: ' + trip.start_time + '<br>' +
+                        'spaces left: ' + trip.spaces_left + '<br>' +
+                        '<br><p>'    
+                    );
+                }
+                else if(cDate[1] == lDate[1] || cDate[1] == fDate[1]){
+                    if(cDate[0] <= lDate[0] && cDate[0] >= fDate[0]){
+                        console.log(trip.id);
+
+                        $("#All-trips").append(
+                            '<p>' +
+                            'ID: ' + trip.id + '<br>' +
+                            'tour guide: ' + trip.tour_guide + '<br>' +
+                            'trip name city: '  + trip.trip_name_city + '<br>' +
+                            'tour date: ' + trip.tour_date + '<br>' +
+                            'tour time: ' + trip.tour_time + '<br>' +
+                            'start time: ' + trip.start_time + '<br>' +
+                            'spaces left: ' + trip.spaces_left + '<br>' +
+                            '<br><p>'    
+                        );
+                    }
+                    else if(cDate[0] == lDate[0] || cDate[0] == fDate[0]){
+                        console.log(trip.id);
+
+                        $("#All-trips").append(
+                            '<p>' +
+                            'ID: ' + trip.id + '<br>' +
+                            'tour guide: ' + trip.tour_guide + '<br>' +
+                            'trip name city: '  + trip.trip_name_city + '<br>' +
+                            'tour date: ' + trip.tour_date + '<br>' +
+                            'tour time: ' + trip.tour_time + '<br>' +
+                            'start time: ' + trip.start_time + '<br>' +
+                            'spaces left: ' + trip.spaces_left + '<br>' +
+                            '<br><p>'    
+                        );
+                    }
+                }
+                
+            }
         }
     })
 }
@@ -242,7 +302,9 @@ function operationsListeners(){
 
         else if($("#submit").text() === "Filter"){
             const city = $("#filter-city").val();
-            getAllTripCity(city);
+            const dstart = $("#start-trip").val();
+            const dend = $("#end-trip").val();
+            getAllTripCity(city, dstart,dend);
         }
     });
 }
