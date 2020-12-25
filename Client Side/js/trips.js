@@ -121,8 +121,17 @@ function deleteTrip(trip) {
     getAllTrips();
 }
 
+// function filterCity(trip,city,dstsrt,dend) {
+//     var startDate, endDate;
+//     var result= trip.tour_date.filer(function(obj) {
+//         return obj.date >= startDate && obj.data <= endDate;
+//     });
+
+//     console.log(result);
+// }
 
 function filterCity(trip, city, dstart, dend){
+    console.log(trip);
     var fDate,lDate,cDate;
     fDate = dstart.split('/');
     lDate = dend.split('/');
