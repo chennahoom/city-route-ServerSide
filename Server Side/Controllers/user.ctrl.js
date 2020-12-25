@@ -1,21 +1,15 @@
 const User = require('../Models/users');
 
 exports.userController = {
+
+    generateId() {
+        startId++;
+        return startId;
+    },
     getUsers(req, res) {
         if (Object.keys(req.query).length !== 0) {
             let query = {}
 
-            if (req.query.gender) {
-                query.gender = req.query.gender
-            }
-            if (req.query.age) {
-                query.age = req.query.age
-            }
-            if (req.query.interest) {
-                query.interest = req.query.interest
-            }
-
-            console.log("req.query.gender");
             User.find(query)
                 .then(docs => { res.json(docs) })
                 .catch(err => console.log(`Error getting the data from DB: ${err}`));
@@ -30,26 +24,68 @@ exports.userController = {
             .catch(err => console.log(`Error getting the data from DB: ${err}`));
     },
 
-
     addUser(req, res) {
         const { body } = req;
-        const newUser = new User(body);
-        const result = newUser.save();
-        if (result) {
-            res.json(newUser)
-        } else {
-            res.status(404).send("Error saving a user");
-        }
+        const user = new User();
+
+        User.countDocuments({}, (err, result) => {
+            if (err)
+                console.log(err);
+            else{
+                user.id = result+1;
+            }
+        }).then((result)=>{
+            user.full_name = body.full_name
+            user.type_of_user = body.type_of_user
+            user.about_me = body.about_me 
+            user.languages = body.languages   
+            user.email = body.email   
+            user.phone = body.phone
+            
+        
+        user.save()
+            .then(() => res.json({id:`${user.id}`}))
+            .catch(err => console.log(err))
+        })
+
     },
+    
     updateUser(req, res) {
-        const { body } = req;
-        User.updateOne({ id: req.params.id }, body)
-            .then(docs => { res.json(docs) })
-            .catch(err => console.log(`Error updating user from db: ${err}`));
+        const { body } = req
+        const user = {};
+        user.id = req.params.id
+        if(body.full_name){
+            user.full_name = body.full_name
+        }
+        if(body.type_of_user){
+            user.type_of_user = body.type_of_user
+        }
+        if (body.about_me){
+            user.about_me = body.about_me
+        }
+
+        if (body.languages){
+            user.languages = body.languages
+        }
+
+        if (body.email){
+            user.email = body.email
+        }
+
+        if (body.phone){
+            user.phone = body.phone
+        }
+
+        const query = {id: req.params.id}
+
+        User.updateOne(query, user)
+            .then(() => res.json({id:`${req.params.id}`}))
+            .catch(err => console.log(err))
+
     },
     deleteUser(req, res) {
         User.deleteOne({ id: req.params.id })
-            .then(docs => { res.json(docs) })
-            .catch(err => console.log(`Error deleting user from db: ${err}`));
+        .then(() => res.json({id:`${req.params.id}`}))
+        .catch(err => console.log(`Error deleting user from db: ${err}`));
     }
 };
