@@ -122,8 +122,6 @@ function deleteTrip(trip) {
 }
 
 
-
-
 function filterCity(trip, city, dstart, dend){
     var fDate,lDate,cDate;
     fDate = dstart.split('/');
@@ -132,71 +130,38 @@ function filterCity(trip, city, dstart, dend){
         if(trip.trip_name_city === city){
             cDate = trip.tour_date.split('/');
             if(cDate[2] < lDate[2] && cDate[2] > fDate[2]){
-                console.log(trip.id);
-                $("#All-trips").append(
-                    '<p>' +
-                    'ID: ' + trip.id + '<br>' +
-                    'tour guide: ' + trip.tour_guide + '<br>' +
-                    'trip name city: '  + trip.trip_name_city + '<br>' +
-                    'tour date: ' + trip.tour_date + '<br>' +
-                    'tour time: ' + trip.tour_time + '<br>' +
-                    'start time: ' + trip.start_time + '<br>' +
-                    'spaces left: ' + trip.spaces_left + '<br>' +
-                    '<br><p>'    
-                );
+                appendTrips(trip);
             }
             else if(cDate[2] == lDate[2] || cDate[2] == fDate[2]){
                 if (cDate[1] < lDate[1] && cDate[1] > fDate[1]){
-                console.log(trip.id);
-
-                    $("#All-trips").append(
-                        '<p>' +
-                        'ID: ' + trip.id + '<br>' +
-                        'tour guide: ' + trip.tour_guide + '<br>' +
-                        'trip name city: '  + trip.trip_name_city + '<br>' +
-                        'tour date: ' + trip.tour_date + '<br>' +
-                        'tour time: ' + trip.tour_time + '<br>' +
-                        'start time: ' + trip.start_time + '<br>' +
-                        'spaces left: ' + trip.spaces_left + '<br>' +
-                        '<br><p>'    
-                    );
+                    appendTrips(trip);
                 }
                 else if(cDate[1] == lDate[1] || cDate[1] == fDate[1]){
                     if(cDate[0] <= lDate[0] && cDate[0] >= fDate[0]){
-                        console.log(trip.id);
+                        appendTrips(trip);
 
-                        $("#All-trips").append(
-                            '<p>' +
-                            'ID: ' + trip.id + '<br>' +
-                            'tour guide: ' + trip.tour_guide + '<br>' +
-                            'trip name city: '  + trip.trip_name_city + '<br>' +
-                            'tour date: ' + trip.tour_date + '<br>' +
-                            'tour time: ' + trip.tour_time + '<br>' +
-                            'start time: ' + trip.start_time + '<br>' +
-                            'spaces left: ' + trip.spaces_left + '<br>' +
-                            '<br><p>'    
-                        );
                     }
                     else if(cDate[0] == lDate[0] || cDate[0] == fDate[0]){
-                        console.log(trip.id);
-
-                        $("#All-trips").append(
-                            '<p>' +
-                            'ID: ' + trip.id + '<br>' +
-                            'tour guide: ' + trip.tour_guide + '<br>' +
-                            'trip name city: '  + trip.trip_name_city + '<br>' +
-                            'tour date: ' + trip.tour_date + '<br>' +
-                            'tour time: ' + trip.tour_time + '<br>' +
-                            'start time: ' + trip.start_time + '<br>' +
-                            'spaces left: ' + trip.spaces_left + '<br>' +
-                            '<br><p>'    
-                        );
+                        appendTrips(trip);
                     }
                 }
-                
             }
         }
     })
+}
+
+function appendTrips(trip){
+    $("#All-trips").append(
+        '<p>' +
+        'ID: ' + trip.id + '<br>' +
+        'tour guide: ' + trip.tour_guide + '<br>' +
+        'trip name city: '  + trip.trip_name_city + '<br>' +
+        'tour date: ' + trip.tour_date + '<br>' +
+        'tour time: ' + trip.tour_time + '<br>' +
+        'start time: ' + trip.start_time + '<br>' +
+        'spaces left: ' + trip.spaces_left + '<br>' +
+        '<br><p>'    
+    );
 }
 
 
