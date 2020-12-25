@@ -94,7 +94,6 @@ function showTrip(trip){
         'spaces left: ' + trip.spaces_left + '<br>' +
         '<br><p>'
     );
-
 }
 
 function showAllTrips(trip){
