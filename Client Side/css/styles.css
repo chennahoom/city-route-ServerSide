@@ -36,5 +36,6 @@ form{
     display:none;
 }
 
-
-
+.g-signin2{
+    margin-top: 50px;
+}
