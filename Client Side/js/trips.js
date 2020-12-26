@@ -138,26 +138,49 @@ function filterCity(trip, city, dstart, dend){
     lDate = dend.split('/');
     trip.forEach(trip => {
         if(trip.trip_name_city === city){
-            cDate = trip.tour_date.split('/');
+            cDate = trip.tour_date.split('/')
+            //console.log (cDate);
             if(cDate[2] < lDate[2] && cDate[2] > fDate[2]){
                 appendTrips(trip);
             }
-            else if(cDate[2] == lDate[2] || cDate[2] == fDate[2]){
-                if (cDate[1] < lDate[1] && cDate[1] > fDate[1]){
+            else if(cDate[2] == lDate[2] && cDate[2] == fDate[2]){
+                if (cDate[1] < lDate[1] && cDate[1] > fDate[1])
                     appendTrips(trip);
+                else if(cDate[1] == lDate[1] && cDate[1] == fDate[1]){
+                    if(cDate[0] == fDate[0] && cDate[0] < lDate[0])
+                        appendTrips(trip);
+                    else if(cDate[0] > fDate[0] && cDate[0] < lDate[0])
+                        appendTrips(trip);
+                    else if(cDate[0] > fDate[0] && cDate[0] == lDate[0])
+                        appendTrips(trip);
                 }
-                else if(cDate[1] == lDate[1] || cDate[1] == fDate[1]){
-                    if(cDate[0] <= lDate[0] && cDate[0] >= fDate[0]){
+                else if(cDate[1] < lDate[1] && cDate[1] == fDate[1]){
+                    if(cDate[0] >= fDate[0])
                         appendTrips(trip);
-
-                    }
-                    else if(cDate[0] == lDate[0] || cDate[0] == fDate[0]){
+                }
+                else if(cDate[1] == lDate[1] && cDate[1] > fDate[1]){
+                    if(cDate[0] <= lDate[0])
                         appendTrips(trip);
-                    }
+                }
+            }
+            else if(cDate[2] < lDate[2] && cDate[2] == fDate[2]){
+                if (cDate[1] > fDate[1])
+                    appendTrips(trip);
+                else if(cDate[1] == fDate[1]){
+                    if(cDate[0] >= fDate[0])
+                        appendTrips(trip);
+                }
+            }
+            else if(cDate[2] == lDate[2] && cDate[2] > fDate[2]){
+                if (cDate[1] < lDate[1])
+                    appendTrips(trip);
+                else if(cDate[1] == lDate[1]){
+                    if(cDate[0] <= lDate[0])
+                        appendTrips(trip);
                 }
             }
         }
-    })
+    });
 }
 
 function appendTrips(trip){
@@ -306,4 +329,5 @@ function operationsListeners(){
 //             const dend = $("#end-trip").val();
 //             getAllTripCity(city, dstart,dend);
 //         }
+//        }
 //     });

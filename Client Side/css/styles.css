@@ -36,6 +36,7 @@ form{
     display:none;
 }
 
+<<<<<<< HEAD
 .join-trip{
     /* display: block; */
     margin-left: auto;
@@ -44,3 +45,8 @@ form{
     
 }
 
+=======
+.g-signin2{
+    margin-top: 50px;
+}
+>>>>>>> 483a9f53ff07993b1f3443ff3dfa6930754b819f
