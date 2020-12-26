@@ -20,30 +20,29 @@
 <body>
     <div id="mapid"></div>
     <script>
-        var map,
-  dir;
+        var map, dir;
 
-map = L.map('map', {
-  layers: MQ.mapLayer(),
-  center: [ 42.658694, -73.602323 ],
-  zoom: 7
-});
+        map = L.map('map', {
+        layers: MQ.mapLayer(),
+        center: [ 42.658694, -73.602323 ],
+        zoom: 7
+        });
 
-dir = MQ.routing.directions();
+        dir = MQ.routing.directions();
 
-dir.optimizedRoute({
-  locations: [
-    'syracuse ny',
-    'springfield ma',
-    'ithaca ny',
-    'hartford ct'
-  ]
-});
+        dir.optimizedRoute({
+        locations: [
+            'syracuse ny',
+            'springfield ma',
+            'ithaca ny',
+            'hartford ct'
+        ]
+        });
 
-map.addLayer(MQ.routing.routeLayer({
-  directions: dir,
-  fitBounds: true
-}));
+        map.addLayer(MQ.routing.routeLayer({
+        directions: dir,
+        fitBounds: true
+        }));
 
     </script>
 </body>
