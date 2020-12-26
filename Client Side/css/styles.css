@@ -36,5 +36,11 @@ form{
     display:none;
 }
 
-
+.join-trip{
+    /* display: block; */
+    margin-left: auto;
+    width: 100px;
+    justify-content: space-around;
+    
+}
 

@@ -1,5 +1,6 @@
 $(function() {
     operationsListeners();
+    
 });
 
 // function getAllTrips(){
@@ -131,6 +132,7 @@ function getAllTripCity(city, dstart,dend){
 // }
 
 function filterCity(trip, city, dstart, dend){
+    console.log("ggg");
     var fDate,lDate,cDate;
     fDate = dstart.split('/');
     lDate = dend.split('/');
@@ -159,6 +161,7 @@ function filterCity(trip, city, dstart, dend){
 }
 
 function appendTrips(trip){
+    // $(location).attr('href',"./trips.html");
     $("#All-trips").append(
         '<p>' +
         'ID: ' + trip.id + '<br>' +
@@ -168,9 +171,20 @@ function appendTrips(trip){
         'tour time: ' + trip.tour_time + '<br>' +
         'start time: ' + trip.start_time + '<br>' +
         'spaces left: ' + trip.spaces_left + '<br>' +
+        '<button class=join-trip id='+ trip.id+' >Join Trip</button>'+
         '<br><p>'    
     );
+    // $(".join-trip").css("display","block");
+    $(".join-trip").click(() =>{
+        // $(location).attr('href',"./index.html");
+        $(".join-trip").css("width","300px");
+        // $(".join-trip").css("display","block");
+
+    
+    });
+
 }
+
 
 
 function operationsListeners(){
@@ -229,11 +243,12 @@ function operationsListeners(){
     // });
 
     $("#filter").click(() => {
-        $("#trips-result").empty();
-        $("#All-trips").empty();
+        // $("#trips-result").empty();
+        // $("#All-trips").empty();
         $("form").css("display", "block");
         $("#get-delete-form").css("display", "none");
         $("#put-post-form").css("display", "none");
+        $("#join-trip").css("display", "block");
         $("#submit").css("display", "block");
         $("#get-filter").css("display", "block");
         $("#submit").text("Filter");
@@ -247,7 +262,12 @@ function operationsListeners(){
         const dend = $("#end-trip").val();
         getAllTripCity(city, dstart,dend);
     });
+
+    // $("#join-trip").click(() =>{
+    //     $("form").css("background-color", "blue");
+    // })
 }
+
 //         if ($("#submit").text() === "Get") {
 //             const tripId = $("#trip-id").val();
 //             getTripById(tripId);
@@ -287,4 +307,3 @@ function operationsListeners(){
 //             getAllTripCity(city, dstart,dend);
 //         }
 //     });
-// }
