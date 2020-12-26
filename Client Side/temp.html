@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-        <script src="js/trips.js"></script>
+        <script src="js/temp.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -10,14 +10,19 @@
         <title>Trips</title>
     </head>
     <body>
-        <!-- <div class="container"> -->
-            <h2>Pick a trip!</h2>
-            <!-- <button type="button" class="btn btn-dark" id=filter-trip>Filter</button> -->
-        <!-- </div> -->
+        <div class="container">
+            <h2>Trips - CRUD</h2>
+            <button type="button" class="btn btn-primary" id=get-all-t>Get all</button>
+            <button type="button" class="btn btn-success" id=get-by-id-t>Get by id</button>
+            <button type="button" class="btn btn-info" id=add-t>Add</button>
+            <button type="button" class="btn btn-warning" id=update-t>Update</button>
+            <button type="button" class="btn btn-danger" id=delete-t>Delete</button>
+            <button type="button" class="btn btn-dark" id=filter>Filter</button>
+        </div>
 
         <form>
-            <div id = "get-filter-trip">
-            <label for="filter-city">City</label>
+            <div id = "get-filter">
+            <label for="filter-city">Filter by city</label>
                 <select id="filter-city" class="form-control">
                     <option selected>Choose...</option>
                     <option value="Berlin">Berlin</option>
@@ -29,8 +34,7 @@
                     <option value="Tokyo">Tokyo</option>
                     <option value="Los Angeles">Los Angeles</option>
                 </select>
-
-            <label for="start-trip" class="form-group">Dates:</label>
+            <label for="start-trip" class="form-group"></label>
             <input type="text" class="form-control" id="start-trip" placeholder="Start: 21/06/2020">
             <label for="end-trip" class="form-group"></label>
             <input type="text" class="form-control" id="end-trip" placeholder="End: 21/07/2020">
@@ -68,7 +72,7 @@
                 <label for="trips-spaces-left">Spaces left</label>
                 <input type="text" class="form-control" id="trips-spaces-left">
             </div><br>
-            <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            <button type="button" class="btn btn-primary" id="submit-temp"></button>
             <section id="trips-result"></section>
             <section id="All-trips"></section>
         </form>

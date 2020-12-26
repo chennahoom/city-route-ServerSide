@@ -13,6 +13,12 @@ body {
     width:300px;
 }
 
+#submit-temp{
+    width: 80px;
+    display: flex;
+    justify-content: space-around;
+    display: none;
+}
 
 #submit {
     width: 80px;
@@ -25,7 +31,6 @@ form{
 }
 
 
-form,
 #put-post-form,
 #get-delete-form {
     display:none;
