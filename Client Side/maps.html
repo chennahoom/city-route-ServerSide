@@ -20,29 +20,44 @@
 <body>
     <div id="mapid"></div>
     <script>
-        var map, dir;
+        var mymap = L.map('mapid').setView([42.658694, -73.602323], 13);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', { attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiY2hlbm5haG9vbSIsImEiOiJja2o1cHVmM2E2MGQ3MnFsYmp5aG9lY2E4In0.9ENsXnIeUpwpf30O2vAgHA'
+    }).addTo(mymap);
 
-        map = L.map('map', {
-        layers: MQ.mapLayer(),
-        center: [ 42.658694, -73.602323 ],
-        zoom: 7
-        });
+    //L.geoJSON(geojsonFeature).addTo(map);
 
-        dir = MQ.routing.directions();
+    var marker = L.marker([51.50088279063649, -0.12446446928391436]).addTo(mymap);
+    marker.bindPopup("<b>Stop 1</b><br>The Big Ben").openPopup();
 
-        dir.optimizedRoute({
-        locations: [
-            'syracuse ny',
-            'springfield ma',
-            'ithaca ny',
-            'hartford ct'
-        ]
-        });
+    var marker = L.marker([51.5154145182744, -0.14213606134465054]).addTo(mymap);
+    marker.bindPopup("<b>Stop 2</b><br>Oxford Street").openPopup();
 
-        map.addLayer(MQ.routing.routeLayer({
-        directions: dir,
-        fitBounds: true
-        }));
+    var marker = L.marker([51.50343752527545, -0.11947859997090264]).addTo(mymap);
+    marker.bindPopup("<b>Stop 3</b><br>Oxford Street").openPopup();
+
+    var popup = L.popup();
+
+    L.Routing.control({
+  waypoints: [
+    L.latLng(51.50088279063649, -0.12446446928391436),
+    L.latLng(51.5154145182744, -0.14213606134465054)
+  ]
+}).addTo(map);
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
+
+    mymap.on('click', onMapClick);
+
 
     </script>
 </body>

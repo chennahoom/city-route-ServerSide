@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/chennahoom/city-route#readme",
   "dependencies": {
+    "bootstrap": "^5.0.0-beta1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "leaflet-routing-machine": "^3.2.12",
