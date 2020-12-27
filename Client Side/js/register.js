@@ -14,7 +14,13 @@ function addUser(info) {
     });
 }
 
-
+function lang(optio){
+      var val = [];
+      optio.each(function(i){
+        val[i] = $(this).val();
+      });
+      return val;
+  }
 
 
 function operationsListenersReg(){
@@ -23,7 +29,8 @@ function operationsListenersReg(){
         full_name: $("#examplefullName").val(),
         type_of_user: $("#exampleFormControlSelect1").val(),
         about_me: $("#exampleFormControlTextarea1").val(),
-        languages: $("#languagesSpoken").val(),
+        // languages: $("#languagesSpoken").val(),
+        languages: lang($("#languagesSpoken").val()),
         email: $("#exampleInputEmail1").val(),
         phone: $("#examplePhone").val(),
     }
