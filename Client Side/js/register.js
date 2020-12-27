@@ -8,34 +8,32 @@ function addUser(info) {
         type: 'POST',
         data: info,
         success: function(user) {
-            // addNewUser(user);
-            console.log(user);
+            $(location).attr('href',"./article.html"); //TODO: need to change this to homePage
         }
     });
 }
 
-function lang(optio){
-      var val = [];
-      optio.each(function(i){
-        val[i] = $(this).val();
-      });
-      return val;
-  }
-
 
 function operationsListenersReg(){
-    $("#submitRegister").click(() => {
-       const info = {
-        full_name: $("#examplefullName").val(),
-        type_of_user: $("#exampleFormControlSelect1").val(),
-        about_me: $("#exampleFormControlTextarea1").val(),
-        // languages: $("#languagesSpoken").val(),
-        languages: lang($("#languagesSpoken").val()),
-        email: $("#exampleInputEmail1").val(),
-        phone: $("#examplePhone").val(),
-    }
-    addUser(info);
-});
-}
+    var val = [];
+    $("#submitRegister").click(function(event){
+        event.preventDefault();
+        $(':checkbox:checked').each(function(i){
+            val[i] = $(this).val();
+        });
+        
+        const info = {
+            full_name: $("#examplefullName").val(),
+            type_of_user: $("#exampleFormControlSelect1").val(),
+            about_me: $("#exampleFormControlTextarea1").val(),
+            languages: val,
+            email: $("#exampleInputEmail1").val(),
+            phone: $("#examplePhone").val(),
+        }
+        console.log(info);
+        addUser(info);
+    });
+};
+
        
 
