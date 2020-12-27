@@ -1,0 +1,25 @@
+/* Login Page */
+.nav-logo {
+    display: block;
+    margin: 10px auto;
+    height: 100px;
+    width: 100px;
+    background-size: 100px;
+  }
+
+  .signin-title {
+    text-align: center;
+    margin: 5px;
+
+  }
+
+.signin-form {
+    background: #FFF;
+    border: 1px solid #eee;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    box-sizing: border-box;
+  }
