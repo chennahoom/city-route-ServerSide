@@ -63,6 +63,8 @@ function filterCity(trip, city, dstart, dend){
                         appendTrips(trip);
                     else if(cDate[0] > fDate[0] && cDate[0] == lDate[0])
                         appendTrips(trip);
+                    else if(cDate[0] == fDate[0] && cDate[0] == lDate[0])
+                        appendTrips(trip);
                 }
                 else if(cDate[1] < lDate[1] && cDate[1] == fDate[1]){
                     if(cDate[0] >= fDate[0])
