@@ -106,13 +106,25 @@ function appendTrips(trip){
         '<button class=join-trip id='+ trip.id+' >Join Trip</button>'+
         '<br><p>'    
     );
+
     $(".join-trip").click(function(event){
         event.preventDefault();
         getTripById(this.id);
-      });
-}
+    })}
 
 function showTrip(trip){
+    // $("#aa").append(
+    //     '<p>' +
+    //     '<select id=numtickets>Number of places' +
+    //     '<option value="0">0</option>' +
+    //     '<option value="1">1</option>' +
+    //     '<option value="2">2</option>' +
+    //     '<option value="3">3</option>' +
+    //     '<option value="4">4</option>' +
+    //     '<option value="5">5</option>' +
+    //     '</select>' +
+    //     '<br><p>' 
+    // );
     const info = {
         spaces_left: parseInt(trip.spaces_left) - 1,
     }
@@ -124,8 +136,6 @@ function showTrip(trip){
 function operationsListeners(){
     $("#filter").click(() => {
         $("form").css("display", "block");
-        $("#get-delete-form").css("display", "none");
-        $("#put-post-form").css("display", "none");
         $("#join-trip").css("display", "block");
         $("#submit").css("display", "block");
         $("#get-filter").css("display", "block");
