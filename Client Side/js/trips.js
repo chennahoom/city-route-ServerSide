@@ -24,23 +24,23 @@ function getAllTripCity(city, dstart,dend){
     });
 }
 
-function upateSpace(tripId, info){
-    $.ajax({
-        url: `http://localhost:5000/api/trips/${tripId}`,
-        type: 'PUT',
-        data: info,
-        success: function(data) {
-            updateTrip(data);
-        }
-    });
-}
+// function upateSpace(tripId, info){
+//     $.ajax({
+//         url: `http://localhost:5000/api/trips/${tripId}`,
+//         type: 'PUT',
+//         data: info,
+//         success: function(data) {
+//             updateTrip(data);
+//         }
+//     });
+// }
 
-function updateTrip(trip) {
-    $("#trips-result").empty();
-    $("#trips-result").append(
-        '<p>Your register to trip number '+ trip.id +' was succesfully updated <p>'
-    );
-}
+// function updateTrip(trip) {
+//     $("#trips-result").empty();
+//     $("#trips-result").append(
+//         '<p>Your register to trip number '+ trip.id +' was succesfully updated <p>'
+//     );
+// }
 
 function filterCity(trip, city, dstart, dend){
     var fDate,lDate,cDate;
@@ -49,7 +49,6 @@ function filterCity(trip, city, dstart, dend){
     trip.forEach(trip => {
         if(trip.trip_name_city === city){
             cDate = trip.tour_date.split('/')
-            //console.log (cDate);
             if(cDate[2] < lDate[2] && cDate[2] > fDate[2]){
                 appendTrips(trip);
             }
@@ -106,36 +105,31 @@ function appendTrips(trip){
         '<button class=join-trip id='+ trip.id+' >Join Trip</button>'+
         '<br><p>'    
     );
-
     $(".join-trip").click(function(event){
-        event.preventDefault();
-        getTripById(this.id);
-    })}
+        // 1. save in localstorage the id of the trip
+        //. move to map page
 
-function showTrip(trip){
-    // $("#aa").append(
-    //     '<p>' +
-    //     '<select id=numtickets>Number of places' +
-    //     '<option value="0">0</option>' +
-    //     '<option value="1">1</option>' +
-    //     '<option value="2">2</option>' +
-    //     '<option value="3">3</option>' +
-    //     '<option value="4">4</option>' +
-    //     '<option value="5">5</option>' +
-    //     '</select>' +
-    //     '<br><p>' 
-    // );
-    const info = {
-        spaces_left: parseInt(trip.spaces_left) - 1,
-    }
-    upateSpace(trip.id, info);
+        event.preventDefault();
+        localStorage.setItem("trip_id", this.id);
+        window.location.replace("./maps.html")
+        // getTripById(this.id);
+      });
 }
+
+// function showTrip(trip){
+//     const info = {
+//         spaces_left: parseInt(trip.spaces_left) - 1,
+//     }
+//     upateSpace(trip.id, info);
+// }
 
 
 
 function operationsListeners(){
     $("#filter").click(() => {
         $("form").css("display", "block");
+        $("#get-delete-form").css("display", "none");
+        $("#put-post-form").css("display", "none");
         $("#join-trip").css("display", "block");
         $("#submit").css("display", "block");
         $("#get-filter").css("display", "block");

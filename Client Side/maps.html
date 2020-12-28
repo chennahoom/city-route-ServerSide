@@ -1,64 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/maps.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <title>City-Route Trip</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=KEY"></script>
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=KEY"></script>
+    <link rel="stylesheet" href="css/maps.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"/>
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</head>
-<body>
-    <div id="mapid"></div>
-    <script>
-        var mymap = L.map('mapid').setView([42.658694, -73.602323], 13);
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', { attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoiY2hlbm5haG9vbSIsImEiOiJja2o1cHVmM2E2MGQ3MnFsYmp5aG9lY2E4In0.9ENsXnIeUpwpf30O2vAgHA'
-    }).addTo(mymap);
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
 
-    //L.geoJSON(geojsonFeature).addTo(map);
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
 
-    var marker = L.marker([51.50088279063649, -0.12446446928391436]).addTo(mymap);
-    marker.bindPopup("<b>Stop 1</b><br>The Big Ben").openPopup();
+  <body>
+    <div class="card">
+      <div id="mapid"></div>
 
-    var marker = L.marker([51.5154145182744, -0.14213606134465054]).addTo(mymap);
-    marker.bindPopup("<b>Stop 2</b><br>Oxford Street").openPopup();
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
 
-    var marker = L.marker([51.50343752527545, -0.11947859997090264]).addTo(mymap);
-    marker.bindPopup("<b>Stop 3</b><br>Oxford Street").openPopup();
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
 
-    var popup = L.popup();
+      <div class="card-body">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal">
+        Join Trip
+        </button>
 
-    L.Routing.control({
-  waypoints: [
-    L.latLng(51.50088279063649, -0.12446446928391436),
-    L.latLng(51.5154145182744, -0.14213606134465054)
-  ]
-}).addTo(map);
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Join Trip</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">How many spaces do you want to save?
+                <select id="spaces">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <p id="ticketsError"></p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal">
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary" id="save-tickets">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="./trips.html" class="card-link">Back to trips</a>
+      </div>
+    </div>
 
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
-
-    mymap.on('click', onMapClick);
-
-
-    </script>
-</body>
+    <script type="text/javascript" src="js/maps.js"></script>
+  </body>
 </html>

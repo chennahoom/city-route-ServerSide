@@ -2,17 +2,38 @@
 <html lang="en"> 
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <meta name="google-signin-client_id" content="5381840871-egbf2t3u3kvpfiuu7epi419vbn0g0c4d.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script src="js/login.js"></script>
+        <link rel="stylesheet" href="css/register.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
-    <body>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <a href="#" onclick="signOut();">Sign out</a>
-    </body>
+<body>    
+        <a href="#"><img class="nav-logo" src="https://i.postimg.cc/YCJN9zp6/Capture.png"></a>
+
+        <h2 class="h2 signin-title">Sign into City-Route</h2>
+
+        <div class="signin-form">
+
+        <form class="form-vertical">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+            <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="register.html">Sign Up Now</a>
+            </small>
+            </div>
+        </form>
+    </div>
+</body>
 </html>
-
-
-
-<!-- wOhijRPsUZsQWwMXNU6tNRWk -->
