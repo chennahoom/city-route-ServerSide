@@ -1,19 +1,25 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-header, main, footer, nav, aside, section, div  {
-    display: block;
+header,
+main,
+footer,
+nav,
+aside,
+section,
+div {
+  display: block;
 }
 
-html{
-    height: 100%;
+html {
+  height: 100%;
 }
 
 body {
-    font-family: 'Open sans', sans-serif;
-    height: 100%;
+  font-family: "Open sans", sans-serif;
+  height: 100%;
 }
 
 /* #logo {
@@ -23,8 +29,8 @@ body {
 
 /* ----------------header--------------- */
 .nav-logo {
-    height: 75px;
-    width: 90px;
+  height: 75px;
+  width: 90px;
 }
 
 /* #mainTripsContainer header{
@@ -34,100 +40,99 @@ body {
 } */
 
 .profile {
-    display: block;
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    border: 2px solid #AAA;
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 2px solid #aaa;
 }
-
 
 .headtext {
-    color: black;
-    font-size: 37px;
-    font-weight: bold
+  color: black;
+  font-size: 37px;
+  font-weight: bold;
 }
 
-#mainTripsContainer header .navbar{
-    background-color: #e3f2fd;
+#mainTripsContainer header .navbar {
+  background-color: #e3f2fd;
 }
 
-
-#mainList header{
-    box-shadow: 2px 2px 12px 0px #AAA;
+#mainList header {
+  box-shadow: 2px 2px 12px 0px #aaa;
 }
 
 /* ----------------forms--------------- */
 
 form {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 50px auto;
-    width:300px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 50px auto;
+  width: 300px;
 }
 
 /* register */
 .signin-form {
-    background: #FFF;
-    border: 1px solid #eee;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
-    width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    box-sizing: border-box;
-  }
-
-  .signin-title {
-    text-align: center;
-    margin: 5px;
-  }
-
-  .login-logo {
-    display: block;
-    margin: 10px auto;
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-  }
-  
-  /* login  - TODO*/
-
-/* בחירת טיול */
-.form-control, #submit{
-    margin-left: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
-#from-choose{
-    display: flex;
+.signin-title {
+  text-align: center;
+  margin: 5px;
+}
+
+.login-logo {
+  display: block;
+  margin: 10px auto;
+  height: 100px;
+  width: 100px;
+  background-size: 100px;
+}
+
+/* login  - TODO*/
+
+/* בחירת טיול */
+.form-control,
+#submit {
+  margin-left: 20px;
+}
+
+#from-choose {
+  display: flex;
 }
 
 .form-inline {
-    flex: auto;
-    margin-left: 25%;
+  flex: auto;
+  margin-left: 25%;
 }
 
-.options{
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-    font-weight: bold
+.options {
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+  font-weight: bold;
 }
-.mb-4{
-    margin-top: 60px;
+.mb-4 {
+  margin-top: 60px;
 }
 /* ----------------article--------------- */
 
-  #pageTitle {
-    position: absolute;
-    display: block;
-    margin-top: 20px;
-    margin-left: 10px;
-    font-family: 'Open Sans', sans-serif;
-    color:  #454F63;
-    font-size: 26px;
+#pageTitle {
+  position: absolute;
+  display: block;
+  margin-top: 20px;
+  margin-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  color: #454f63;
+  font-size: 26px;
 }
 
-.stretched-link img{
-    height: 270px;
+.stretched-link img {
+  height: 270px;
 }
 
 /* .menuBar{
@@ -152,40 +157,37 @@ form {
     display:none;
 } */
 
-.join-trip{
-    /* display: block; */
-    margin-left: auto;
-    width: 100px;
-    justify-content: space-around;
-    
+.join-trip {
+  /* display: block; */
+  margin-left: auto;
+  width: 100px;
+  justify-content: space-around;
 }
 
 /* .g-signin2{
     margin-top: 50px;
 } */
 
+/* ----------------maps--------------- */
 
-
-
-
-
-
-  /* ----------------maps--------------- */
-
-  #mapid { 
-    height: 400px;
-    width: auto; 
-    /* margin: 50px auto; */
+#mapid {
+  height: 400px;
+  width: 600px;
 }
-<<<<<<< HEAD
-.cardd {
-    position: absolute;
-    width: 38rem;
-    left: 35%;
-    /* border:2px dashed blue; */
-
+.card {
+  position: absolute;
+  left: 450px;
+  width: 600px;
 }
-  /* ----------------responsive--------------- */
+
+.card-title#tour-city{
+    font-size: 35px;
+}
+
+.card-title#tour-guide{
+    font-size: 25px;
+}
+/* ----------------responsive--------------- */
 
 /* Mobile */
 /* @media (max-width: 700px) {
@@ -212,6 +214,11 @@ form {
     }
 } */
 
-#num-tickets{
-    margin-left: 10px;
+#num-tickets {
+  margin-left: 10px;
+}
+
+#cardSearches {
+  max-width: 18rem;
+  margin-top: 50px;
 }

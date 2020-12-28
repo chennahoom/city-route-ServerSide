@@ -104,6 +104,8 @@ function appendTrips(trip){
         'tour time: ' + trip.tour_time + '<br>' +
         'start time: ' + trip.start_time + '<br>' +
         'spaces left: ' + trip.spaces_left + '<br>' +
+        'stops: ' + trip.stops + '<br>' +
+
         '<button class=join-trip id='+ trip.id+' >Join Trip</button>'+
         '<br><p>'    
     );

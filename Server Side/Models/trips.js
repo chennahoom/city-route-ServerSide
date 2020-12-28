@@ -10,6 +10,7 @@ const tripSchema = new Schema({
     start_time: { type: String },
     spaces_left: { type: Number },
     locations: { type: Array },
+    stops: { type: String },
 
 }, { collection: 'trips' });
 

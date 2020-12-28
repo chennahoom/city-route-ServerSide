@@ -37,6 +37,9 @@ exports.tripController = {
             trip.start_time = body.start_time   
             trip.tour_time = body.tour_time   
             trip.spaces_left = body.spaces_left
+            trip.locations = body.locations
+            trip.stops = body.stops
+
             
         
         trip.save()
@@ -73,6 +76,10 @@ exports.tripController = {
 
         if (body.spaces_left){
             trip.spaces_left = body.spaces_left
+        }
+
+        if (body.stops){
+            trip.stops = body.stops
         }
 
         const query = {id: req.params.id}

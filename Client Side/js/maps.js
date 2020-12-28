@@ -44,6 +44,13 @@ function drawLocationsOnMap(locations){
         success: function(trip) {
             drawLocationsOnMap(trip.locations)
             appendCity(trip.trip_name_city)
+            appendTourGuide(trip.tour_guide)
+            appendTourDate(trip.tour_date)
+            appendTourTime(trip.tour_time)
+            appendTourStartTime(trip.start_time)
+            appendSpacesLeft(trip.spaces_left)
+            // appendStops(trip.stops)
+
         }
     });
     }
@@ -72,8 +79,31 @@ function drawLocationsOnMap(locations){
     }
 
     function appendCity(trip_name_city){
-        $(".card-title").append(trip_name_city);
+        $("#tour-city").append(trip_name_city);
+    }
 
+    function appendTourGuide(tour_guide){
+        $("#tour-guide").append(tour_guide);
+    }
+
+    function appendTourDate(tour_date){
+        $("#tourDate").append(tour_date);
+    }
+
+    function appendTourTime(tour_time){
+        $("#tourTime").append(tour_time);
+    }
+
+    function appendTourStartTime(start_time){
+        $("#startTime").append(start_time);
+    }
+
+    function appendSpacesLeft(spaces_left){
+        $("#spacesLeft").append(spaces_left);
+    }
+
+    function appendStops(stops){
+        $("#trip-stops").append(stops);
     }
 
 
