@@ -7,34 +7,128 @@ header, main, footer, nav, aside, section, div  {
     display: block;
 }
 
+html{
+    height: 100%;
+}
+
 body {
+    font-family: 'Open sans', sans-serif;
+    height: 100%;
+}
+
+/* #logo {
+    padding-left: 50px;
+    background: url('../images/logo.png') 0 50%/contain no-repeat;
+} */
+
+/* ----------------header--------------- */
+.nav-logo {
+    height: 75px;
+    width: 90px;
+}
+
+/* #mainTripsContainer header{
+    width: 100%;
+    padding-top: 1px;
+    background-color: white;
+} */
+
+.profile {
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 2px solid #AAA;
+}
+
+
+.headtext {
+    color: black;
+    font-size: 37px;
+    font-weight: bold
+}
+
+#mainTripsContainer header .navbar{
+    background-color: #e3f2fd;
+}
+
+#mainList header{
+    box-shadow: 2px 2px 12px 0px #AAA;
+}
+
+/* ----------------forms--------------- */
+
+form {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: auto;
+    margin: 50px auto;
     width:300px;
 }
 
-#submit-temp{
+/* register */
+.signin-form {
+    background: #FFF;
+    border: 1px solid #eee;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  .signin-title {
+    text-align: center;
+    margin: 5px;
+  }
+
+  .login-logo {
+    display: block;
+    margin: 10px auto;
+    height: 100px;
+    width: 100px;
+    background-size: 100px;
+  }
+  
+  /* login  - TODO*/
+
+
+/* ----------------article--------------- */
+
+  #pageTitle {
+    /* position: absolute; */
+    display: block;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color:  #454F63;
+    font-size: 26px;
+}
+
+.stretched-link img{
+    height: 270px;
+}
+
+/* .menuBar{
+    margin-top: 10px;
+} */
+
+/* #submit-temp{
     width: 80px;
     display: flex;
     justify-content: space-around;
     display: none;
-}
+} */
 
-#submit {
+/* #submit {
     width: 80px;
     display: flex;
     justify-content: space-around;
-}
+} */
 
-form{
-    margin-top: 20px;
-}
-
-
-#put-post-form,
+/* #put-post-form,
 #get-delete-form {
     display:none;
-}
+} */
 
 .join-trip{
     /* display: block; */
@@ -44,6 +138,47 @@ form{
     
 }
 
-.g-signin2{
+/* .g-signin2{
     margin-top: 50px;
+} */
+
+
+
+
+
+
+
+  /* ----------------maps--------------- */
+
+  #mapid { 
+    height: 400px;
+    width: 600px; 
+    margin: 50px auto;
+}
+
+  /* ----------------responsive--------------- */
+
+/* Mobile */
+@media (max-width: 700px) {
+    body#mainTripsContainer .card-body {
+        display: none;
+    }
+    body .card-img-overlay {
+        color: #FFF;
+        background: rgba(0,0,0,0.3);
+        display: flex;
+        justify-content: flex-end;
+        align-items: self-start;
+        flex-flow: column;
+    }
+    .card-title{
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+/* Desktop */
+@media (min-width: 700px) {
+    body .card-img-overlay {
+        display: none;
+    }
 }
