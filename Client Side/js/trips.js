@@ -24,23 +24,23 @@ function getAllTripCity(city, dstart,dend){
     });
 }
 
-function upateSpace(tripId, info){
-    $.ajax({
-        url: `http://localhost:5000/api/trips/${tripId}`,
-        type: 'PUT',
-        data: info,
-        success: function(data) {
-            updateTrip(data);
-        }
-    });
-}
+// function upateSpace(tripId, info){
+//     $.ajax({
+//         url: `http://localhost:5000/api/trips/${tripId}`,
+//         type: 'PUT',
+//         data: info,
+//         success: function(data) {
+//             updateTrip(data);
+//         }
+//     });
+// }
 
-function updateTrip(trip) {
-    $("#trips-result").empty();
-    $("#trips-result").append(
-        '<p>Your register to trip number '+ trip.id +' was succesfully updated <p>'
-    );
-}
+// function updateTrip(trip) {
+//     $("#trips-result").empty();
+//     $("#trips-result").append(
+//         '<p>Your register to trip number '+ trip.id +' was succesfully updated <p>'
+//     );
+// }
 
 function filterCity(trip, city, dstart, dend){
     var fDate,lDate,cDate;
@@ -49,7 +49,6 @@ function filterCity(trip, city, dstart, dend){
     trip.forEach(trip => {
         if(trip.trip_name_city === city){
             cDate = trip.tour_date.split('/')
-            //console.log (cDate);
             if(cDate[2] < lDate[2] && cDate[2] > fDate[2]){
                 appendTrips(trip);
             }
@@ -119,12 +118,12 @@ function appendTrips(trip){
       });
 }
 
-function showTrip(trip){
-    const info = {
-        spaces_left: parseInt(trip.spaces_left) - 1,
-    }
-    upateSpace(trip.id, info);
-}
+// function showTrip(trip){
+//     const info = {
+//         spaces_left: parseInt(trip.spaces_left) - 1,
+//     }
+//     upateSpace(trip.id, info);
+// }
 
 
 

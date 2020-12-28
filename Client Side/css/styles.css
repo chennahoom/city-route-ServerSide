@@ -177,6 +177,7 @@ form {
     width: auto; 
     /* margin: 50px auto; */
 }
+<<<<<<< HEAD
 .cardd {
     position: absolute;
     width: 38rem;
@@ -210,3 +211,7 @@ form {
         display: none;
     }
 } */
+
+#num-tickets{
+    margin-left: 10px;
+}

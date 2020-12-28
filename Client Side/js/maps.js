@@ -22,6 +22,21 @@ function drawLocationsOnMap(locations){
         }
     }
 
+    function upateSpace(tripId, info){
+        $.ajax({
+            url: `http://localhost:5000/api/trips/${tripId}`,
+            type: 'PUT',
+            data: info,
+            success: function(data) {
+                updateTrip(data);
+            }
+        });
+    }
+    
+    function updateTrip(data){
+        window.location.replace("./article.html")
+    }
+
    function getTripById(tripId) {
     $.ajax({
         url: `http://localhost:5000/api/trips/${tripId}`,
@@ -33,17 +48,42 @@ function drawLocationsOnMap(locations){
     });
     }
 
+    function getTripByIdNumTickets(tripId,numTickets) {
+        $.ajax({
+            url: `http://localhost:5000/api/trips/${tripId}`,
+            type: 'GET',
+            success: function(trip) {
+                numOfTickets(trip , numTickets)
+            }
+        });
+        }
+
+    function numOfTickets(trip, numTickets){
+        const info = {
+            spaces_left: parseInt(trip.spaces_left) - parseInt(numTickets),
+        }
+        if(info.spaces_left === 0){
+            $("#ticketsError").html("Sold Out").addClass("error-msg");
+            $("#ticketsError").css("color","red");
+        }
+        else{
+            upateSpace(trip.id, info);
+        }
+    }
 
     function appendCity(trip_name_city){
         $(".card-title").append(trip_name_city);
 
-}
+    }
 
 
     window.onload = function () { 
         getTripById(localStorage.getItem("trip_id"));
-           
-
+        var numTickets = "";
+        $("#save-tickets").click(() => {
+            numTickets = $("#spaces").val();
+            getTripByIdNumTickets(localStorage.getItem("trip_id"), numTickets);
+        })
     }
 
 
