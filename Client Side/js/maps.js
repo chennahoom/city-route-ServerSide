@@ -33,9 +33,8 @@ function drawLocationsOnMap(locations){
         });
     }
     
-    // //TODO: here need to be the add to 'my trips' and move to the final page
     function updateTrip(data){
-
+        window.location.replace("./article.html")
     }
 
    function getTripById(tripId) {
