@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
         <script src="js/trips.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -9,71 +10,74 @@
         <link rel="stylesheet" href="css/styles.css"/>
         <title>Trips</title> -->
 
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap" rel="stylesheet">
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="css/styles.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-        <title>Trips</title>
-    </head>
-    <body id="mainTripsContainer">
-        <!-- <div class="container">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trips</title>
+</head>
+
+<body id="mainTripsContainer">
+    <!-- <div class="container">
             <h2>Pick a trip!</h2>
             <button type="button" class="btn btn-dark" id=filter-trip>Filter</button>
         </div> -->
-        <header>
-            <section class="navbar navbar-light bg-light">
-                <a href="trips.html"><img class="nav-logo" src="https://i.postimg.cc/L4Y4Dm4L/Logo2.png"></a>
-                <span class="headtext">Choose today, tomorrow’s trip!</span>
-                <section class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><img class="profile" src="https://i.postimg.cc/cJt1JvML/pro.jpg"></a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="login.html">Log out</a>
-                    </div>
-                </section>
-            </section>
-            <nav class="navbar navbar-expand-lg navbar-light">
-    
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Trips</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="trips.html">Find a trip</a>
-                                <a class="dropdown-item" href="article.html">My trips</a>
-                            </div>
-                        </div>
-                        <a class="nav-item nav-link" href="Recommendations.html">Recommendations</a>
-                        <a class="nav-item nav-link" href="#">Settings</a>
-                    </div>
+    <header>
+        <section class="navbar navbar-light bg-light">
+            <a href="trips.html"><img class="nav-logo" src="https://i.postimg.cc/L4Y4Dm4L/Logo2.png"></a>
+            <span class="headtext">Choose today, tomorrow’s trip!</span>
+            <section class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><img class="profile"
+                        src="https://i.postimg.cc/cJt1JvML/pro.jpg"></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="login.html">Log out</a>
                 </div>
-            </nav>
-        </header>
+            </section>
+        </section>
+        <nav class="navbar navbar-expand-lg navbar-light">
 
-        <form>
-            <div id = "get-filter-trip">
-            <label for="filter-city">City</label>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Trips</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="trips.html">Find a trip</a>
+                            <a class="dropdown-item" href="article.html">My trips</a>
+                        </div>
+                    </div>
+                    <a class="nav-item nav-link" href="Recommendations.html">Recommendations</a>
+                    <a class="nav-item nav-link" href="#">Settings</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="from-choose">
+        <form class="form-inline">
+            <div class="form-group">
+                <!-- <label for="filter-city">City</label> -->
                 <select id="filter-city" class="form-control">
-                    <option selected>Choose...</option>
+                    <option selected>Going to</option>
                     <option value="Berlin">Berlin</option>
                     <option value="London">London</option>
                     <option value="Tel-Aviv">Tel-Aviv</option>
@@ -83,11 +87,14 @@
                     <option value="Tokyo">Tokyo</option>
                     <option value="Los Angeles">Los Angeles</option>
                 </select>
-
-            <label for="start-trip" class="form-group">Dates:</label>
-            <input type="text" class="form-control" id="start-trip" placeholder="Start: 21/06/2020">
-            <label for="end-trip" class="form-group"></label>
-            <input type="text" class="form-control" id="end-trip" placeholder="End: 21/07/2020">
+                <div class="form-group">
+                    <!-- <label for="start-trip" class="form-group">Dates:</label> -->
+                    <input type="text" class="form-control" id="start-trip" placeholder="check-in: 21/06/2020">
+                </div>
+                <div class="form-group">
+                    <!-- <label for="end-trip" class="form-group"></label> -->
+                    <input type="text" class="form-control" id="end-trip" placeholder="check-out: 21/07/2020">
+                </div>
             </div>
             <button type="button" class="btn btn-primary" id="submit">Submit</button>
             <section id="trips-result">
@@ -97,5 +104,77 @@
                 <!-- <button type="button" class="btn btn-primary" id="join-trip">Join Trip</button> -->
             </section>
         </form>
-    </body>
+    </section>
+    
+    <section class="container">
+        <h2 id="pageTitle">Where is this time?</h2>
+
+        <section class="row row-cols-1 row-cols-md-3">
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/d3td1fFv/image.jpg" class="card-img" alt="Berlin"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">Berlin</h5>
+                    </div>
+                </div>
+            </section>
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/85GL85n7/image.jpg" class="card-img" alt="London"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">London</h5>
+                    </div>
+                </div>
+            </section>
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/L4T3ptS2/image.jpg" class="card-img" alt="Tel-Aviv"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">Tel-Aviv</h5>
+                    </div>
+                </div>
+            </section>
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/zXGSXyDW/image.jpg" class="card-img" alt="Jerusalem"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">Jerusalem</h5>
+                    </div>
+                </div>
+            </section>
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/GmZkQzFJ/image.jpg" class="card-img" alt="Paris"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">Paris</h5>
+                    </div>
+                </div>
+            </section>
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/XqQfkbLp/image.jpg" class="card-img" alt="Amsterdam"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">Amsterdam</h5>
+                    </div>
+                </div>
+            </section>
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/43VpFtwC/image.jpg" class="card-img" alt="Tokyo"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">Tokyo</h5>
+                    </div>
+                </div>
+            </section>
+            <section class="col mb-4">
+                <div class="card bg-light text-dark">
+                    <a href="#" class="stretched-link"><img src="https://i.postimg.cc/zBkKqr90/image.jpg" class="card-img" alt="Los Angeles"></a>
+                    <div class="card-img-overlay">
+                      <h5 class="options">Los Angeles</h5>
+                    </div>
+                </div>
+            </section>
+        </section>>
+</body>
+
 </html>

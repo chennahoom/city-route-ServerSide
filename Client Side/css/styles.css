@@ -91,7 +91,26 @@ form {
   
   /* login  - TODO*/
 
+/* בחירת טיול */
+.form-control, #submit{
+    margin-left: 20px;
+}
 
+#from-choose{
+    display: flex;
+}
+
+.form-inline {
+    flex: auto;
+    margin-left: 25%;
+}
+
+.options{
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-weight: bold
+
+}
 /* ----------------article--------------- */
 
   #pageTitle {
@@ -159,7 +178,7 @@ form {
   /* ----------------responsive--------------- */
 
 /* Mobile */
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
     body#mainTripsContainer .card-body {
         display: none;
     }
@@ -175,10 +194,10 @@ form {
         font-size: 24px;
         font-weight: 700;
     }
-}
+} */
 /* Desktop */
-@media (min-width: 700px) {
+/* @media (min-width: 700px) {
     body .card-img-overlay {
         display: none;
     }
-}
+} */
