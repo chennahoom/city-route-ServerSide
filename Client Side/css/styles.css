@@ -52,6 +52,7 @@ body {
     background-color: #e3f2fd;
 }
 
+
 #mainList header{
     box-shadow: 2px 2px 12px 0px #AAA;
 }
@@ -109,12 +110,14 @@ form {
     color: rgb(255, 255, 255);
     font-size: 50px;
     font-weight: bold
-
+}
+.mb-4{
+    margin-top: 60px;
 }
 /* ----------------article--------------- */
 
   #pageTitle {
-    /* position: absolute; */
+    position: absolute;
     display: block;
     margin-top: 20px;
     margin-left: 10px;
@@ -171,10 +174,16 @@ form {
 
   #mapid { 
     height: 400px;
-    width: 600px; 
-    margin: 50px auto;
+    width: auto; 
+    /* margin: 50px auto; */
 }
+.cardd {
+    position: absolute;
+    width: 38rem;
+    left: 35%;
+    /* border:2px dashed blue; */
 
+}
   /* ----------------responsive--------------- */
 
 /* Mobile */
