@@ -49,6 +49,10 @@ exports.tripController = {
         const { body } = req
         const trip = {};
         trip.id = req.params.id
+
+        if (body.locations){
+            trip.locations = body.locations
+        }
         if(body.tour_guide){
             trip.tour_guide = body.tour_guide
         }

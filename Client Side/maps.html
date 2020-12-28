@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
@@ -35,18 +36,17 @@
     <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>map</title>
-
-    
-
 </head>
-<body>
+
+<body id="mainTripsContainer">
     <header>
         <section class="navbar navbar-light bg-light">
             <a href="homepage.html"><img class="nav-logo" src="https://i.postimg.cc/L4Y4Dm4L/Logo2.png"></a>
-            <span class="headtext">Choose today, tomorrow’s trip!</span>
+            <span class="headtext">Selected trip map</span>
             <section class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"><img class="profile" src="https://i.postimg.cc/cJt1JvML/pro.jpg"></a>
+                    aria-haspopup="true" aria-expanded="false"><img class="profile"
+                        src="https://i.postimg.cc/cJt1JvML/pro.jpg"></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="login.html">Log out</a>
                 </div>
@@ -74,45 +74,78 @@
 
     <div id="mapid"></div>
     <script>
+
+        function drawLocationsOnMap(locations) {
+            if (locations && locations.length > 0) {
+                const latlngs = [];
+
+                locations.forEach((location, index) => {
+                    const marker = L.marker(location).addTo(mymap);
+                    latlngs.push(marker.getLatLng());
+                    marker.bindPopup(`<b>Stop ${index + 1}</b>`).openPopup();
+                })
+
+                const polyline = L.polyline(latlngs, { color: 'red' }).addTo(mymap);
+                mymap.fitBounds(polyline.getBounds());
+            }
+        }
+
+        function getTripById(tripId) {
+            $.ajax({
+                url: `http://localhost:5000/api/trips/${tripId}`,
+                type: 'GET',
+                success: function (trip) {
+                    drawLocationsOnMap(trip.locations)
+                }
+            });
+        }
+
+
+        window.onload = function () {
+            getTripById(localStorage.getItem("trip_id"));
+        }
+
         var mymap = L.map('mapid').setView([42.658694, -73.602323], 13);
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', { attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoiY2hlbm5haG9vbSIsImEiOiJja2o1cHVmM2E2MGQ3MnFsYmp5aG9lY2E4In0.9ENsXnIeUpwpf30O2vAgHA'
-    }).addTo(mymap);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiY2hlbm5haG9vbSIsImEiOiJja2o1cHVmM2E2MGQ3MnFsYmp5aG9lY2E4In0.9ENsXnIeUpwpf30O2vAgHA'
+        }).addTo(mymap);
 
-    //L.geoJSON(geojsonFeature).addTo(map);
+        //L.geoJSON(geojsonFeature).addTo(map);
 
-    var marker = L.marker([51.50088279063649, -0.12446446928391436]).addTo(mymap);
-    marker.bindPopup("<b>Stop 1</b><br>The Big Ben").openPopup();
+        // var marker = L.marker([51.50088279063649, -0.12446446928391436]).addTo(mymap);
+        // marker.bindPopup("<b>Stop 1</b><br>The Big Ben").openPopup();
 
-    var marker = L.marker([51.5154145182744, -0.14213606134465054]).addTo(mymap);
-    marker.bindPopup("<b>Stop 2</b><br>Oxford Street").openPopup();
+        // var marker = L.marker([51.5154145182744, -0.14213606134465054]).addTo(mymap);
+        // marker.bindPopup("<b>Stop 2</b><br>Oxford Street").openPopup();
 
-    var marker = L.marker([51.50343752527545, -0.11947859997090264]).addTo(mymap);
-    marker.bindPopup("<b>Stop 3</b><br>Oxford Street").openPopup();
+        // var marker = L.marker([51.50343752527545, -0.11947859997090264]).addTo(mymap);
+        // marker.bindPopup("<b>Stop 3</b><br>Oxford Street").openPopup();
 
-    var popup = L.popup();
+        var popup = L.popup();
 
-    L.Routing.control({
-  waypoints: [
-    L.latLng(51.50088279063649, -0.12446446928391436),
-    L.latLng(51.5154145182744, -0.14213606134465054)
-  ]
-}).addTo(map);
+        L.Routing.control({
+            waypoints: [
+                L.latLng(51.50088279063649, -0.12446446928391436),
+                L.latLng(51.5154145182744, -0.14213606134465054)
+            ]
+        }).addTo(map);
 
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(mymap);
+        }
 
-    mymap.on('click', onMapClick);
+        mymap.on('click', onMapClick);
 
 
     </script>
 </body>
+
 </html>
