@@ -10,7 +10,6 @@ accessToken: 'pk.eyJ1IjoiY2hlbm5haG9vbSIsImEiOiJja2o1cHVmM2E2MGQ3MnFsYmp5aG9lY2E
 function drawLocationsOnMap(locations){
         if(locations && locations.length > 0) {
             const latlngs = [];
-
             locations.forEach((location,index) => {
                     const marker = L.marker(location).addTo(mymap);
                     latlngs.push(marker.getLatLng());
@@ -44,6 +43,13 @@ function drawLocationsOnMap(locations){
         success: function(trip) {
             drawLocationsOnMap(trip.locations)
             appendCity(trip.trip_name_city)
+            appendTourGuide(trip.tour_guide)
+            appendTourDate(trip.tour_date)
+            appendTourTime(trip.tour_time)
+            appendTourStartTime(trip.start_time)
+            appendSpacesLeft(trip.spaces_left)
+            appendStops(trip.stops)
+
         }
     });
     }
@@ -72,15 +78,38 @@ function drawLocationsOnMap(locations){
     }
 
     function appendCity(trip_name_city){
-        $(".card-title").append(trip_name_city);
+        $("#tour-city").append(trip_name_city);
+    }
 
+    function appendTourGuide(tour_guide){
+        $("#tour-guide").append(tour_guide);
+    }
+
+    function appendTourDate(tour_date){
+        $("#tourDate").append(tour_date);
+    }
+
+    function appendTourTime(tour_time){
+        $("#tourTime").append(tour_time);
+    }
+
+    function appendTourStartTime(start_time){
+        $("#startTime").append(start_time);
+    }
+
+    function appendSpacesLeft(spaces_left){
+        $("#spacesLeft").append(spaces_left);
+    }
+
+    function appendStops(stops){
+        $("#trip-stops").append(stops);
     }
 
 
     window.onload = function () { 
         getTripById(localStorage.getItem("trip_id"));
         var numTickets = "";
-        $("#save-tickets").click(() => {
+        $("#join-trip").click(() => {
             numTickets = $("#spaces").val();
             getTripByIdNumTickets(localStorage.getItem("trip_id"), numTickets);
         })

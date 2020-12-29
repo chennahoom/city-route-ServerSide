@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/trips.js"></script>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="css/styles.css"/>
+        <title>Trips</title>
+    </head>
+    <body>
+        <h2>Pick a trip!</h2>
+        <form>
+            <div id = "get-filter-trip">
+            <label for="filter-city">City</label>
+                <select id="filter-city" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="London">London</option>
+                    <option value="Tel-Aviv">Tel-Aviv</option>
+                    <option value="Jerusalem">Jerusalem</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Amsterdam">Amsterdam</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                </select>
+
+            <label for="start-trip" class="form-group">Dates:</label>
+            <input type="text" class="form-control" id="start-trip" placeholder="Start: 21/06/2020">
+            <label for="end-trip" class="form-group"></label>
+            <input type="text" class="form-control" id="end-trip" placeholder="End: 21/07/2020">
+            </div>
+
+            <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            <section id="trips-result">
+            </section>
+            <section id="All-trips">
+            </section>
+        </form>
+    </body>
+</html>
