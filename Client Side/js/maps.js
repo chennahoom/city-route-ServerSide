@@ -22,6 +22,7 @@ function drawLocationsOnMap(locations){
     }
 
     function upateSpace(tripId, info){
+        // url: `http://localhost:5000/api/trips/${tripId}/${amountOfTickets}
         $.ajax({
             url: `http://localhost:5000/api/trips/${tripId}`,
             type: 'PUT',
@@ -109,7 +110,7 @@ function drawLocationsOnMap(locations){
     window.onload = function () { 
         getTripById(localStorage.getItem("trip_id"));
         var numTickets = "";
-        $("#join-trip").click(() => {
+        $("#save-tickets").click(() => {
             numTickets = $("#spaces").val();
             getTripByIdNumTickets(localStorage.getItem("trip_id"), numTickets);
         })
