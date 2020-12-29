@@ -48,7 +48,7 @@ function drawLocationsOnMap(locations){
             appendTourTime(trip.tour_time)
             appendTourStartTime(trip.start_time)
             appendSpacesLeft(trip.spaces_left)
-            // appendStops(trip.stops)
+            appendStops(trip.stops)
 
         }
     });
