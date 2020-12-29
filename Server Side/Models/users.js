@@ -9,6 +9,7 @@ const userSchema = new Schema({
     languages: { type: Array },
     email: { type: String },
     phone: { type: String },
+    my_trips: { type: Array },
 }, { collection: 'users' });
 
 const User = model('User', userSchema);

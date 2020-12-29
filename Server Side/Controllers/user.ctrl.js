@@ -41,6 +41,7 @@ exports.userController = {
             user.languages = body.languages   
             user.email = body.email   
             user.phone = body.phone
+            user.my_trips = body.my_trips
             
         
         user.save()
@@ -74,6 +75,10 @@ exports.userController = {
 
         if (body.phone){
             user.phone = body.phone
+        }
+
+        if (body.my_trips){
+            user.my_trips = body.my_trips
         }
 
         const query = {id: req.params.id}
