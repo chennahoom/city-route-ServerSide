@@ -173,8 +173,9 @@ form {
 #mapid {
   height: 400px;
   width: 600px;
+  margin-top: 30px;
 }
-.card {
+.card-map {
   position: absolute;
   left: 450px;
   width: 600px;
