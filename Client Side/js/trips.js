@@ -110,13 +110,10 @@ function appendTrips(trip){
         '<br><p>'    
     );
     $(".join-trip").click(function(event){
-        // 1. save in localstorage the id of the trip
-        //. move to map page
-
         event.preventDefault();
         localStorage.setItem("trip_id", this.id);
         window.location.replace("./maps.html")
-        // getTripById(this.id);
+        //getTripById(this.id);
       });
 }
 

@@ -10,7 +10,6 @@ accessToken: 'pk.eyJ1IjoiY2hlbm5haG9vbSIsImEiOiJja2o1cHVmM2E2MGQ3MnFsYmp5aG9lY2E
 function drawLocationsOnMap(locations){
         if(locations && locations.length > 0) {
             const latlngs = [];
-
             locations.forEach((location,index) => {
                     const marker = L.marker(location).addTo(mymap);
                     latlngs.push(marker.getLatLng());
