@@ -185,6 +185,12 @@ form {
     font-size: 35px;
 }
 
+.cardd {
+    position: absolute;
+    width: 38rem;
+    left: 35%;
+    /* border:2px dashed blue; */
+
 .card-title#tour-guide{
     font-size: 25px;
 }
@@ -223,3 +229,4 @@ form {
   max-width: 18rem;
   margin-top: 50px;
 }
+

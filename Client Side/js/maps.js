@@ -109,7 +109,7 @@ function drawLocationsOnMap(locations){
     window.onload = function () { 
         getTripById(localStorage.getItem("trip_id"));
         var numTickets = "";
-        $("#save-tickets").click(() => {
+        $("#join-trip").click(() => {
             numTickets = $("#spaces").val();
             getTripByIdNumTickets(localStorage.getItem("trip_id"), numTickets);
         })

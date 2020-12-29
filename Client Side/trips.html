@@ -18,8 +18,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/trips.js"></script>
     <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -62,7 +64,7 @@
     <section id="from-choose">
         <form class="form-inline">
             <div class="form-group">
-                <select class="form-control">
+                <select class="form-control" id="filter-city">
                     <option selected>Going to</option>
                     <option value="Berlin">Berlin</option>
                     <option value="London">London</option>
@@ -77,9 +79,9 @@
             <section id="trips-result">
                 <!-- <button type="button" class="btn btn-primary" id="join-trip">Join Trip</button> -->
             </section>
-            <section id="All-trips">
+            <!-- <section id="All-trips"> -->
                 <!-- <button type="button" class="btn btn-primary" id="join-trip">Join Trip</button> -->
-            </section>
+            <!-- </section> -->
         </form>
     </section>
 
