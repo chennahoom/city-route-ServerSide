@@ -28,7 +28,6 @@ function drawLocationsOnMap(locations){
             type: 'PUT',
             data: info,
             success: function(data) {
-                console.log(data.spaces_left);
                 updateTrip(data);    
             }
         });
@@ -61,7 +60,6 @@ function drawLocationsOnMap(locations){
             url: `http://localhost:5000/api/trips/${tripId}`,
             type: 'GET',
             success: function(trip) {
-                console.log(trip.spaces_left);
                 numOfTickets(trip , numTickets)
             }
         });
@@ -112,9 +110,8 @@ function drawLocationsOnMap(locations){
     window.onload = function () { 
         getTripById(localStorage.getItem("trip_id"));
         var numTickets = "";
-        $("#join-trip").click(() => {
+        $("#save-tickets").click(() => {
             numTickets = $("#spaces").val();
-            console.log(numTickets);
             getTripByIdNumTickets(localStorage.getItem("trip_id"), numTickets);
         })
     }

@@ -107,19 +107,20 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">How many spaces do you want to save?</div>
-                    <div class="form-group">
-                      <label for="exampleSelect1">Example select</label>
-                      <select class="form-control" id="ticket-select">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
+                    <div class="modal-body">How many spaces do you want to save?
+                      <div class="form-group">
+                        <label for="spaces">Example select</label>
+                        <select id="spaces">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                        <p id="ticketsError"></p>
+                      </div>
                     </div>
-                      <p id="ticketsError"></p>
-                    </div>
+                      
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Close
@@ -129,6 +130,7 @@
                       </button>
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
