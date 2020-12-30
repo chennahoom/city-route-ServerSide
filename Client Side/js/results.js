@@ -14,6 +14,7 @@ function getAllTripCity(city, dstart,dend){
 
 
 function filterCity(trip, city, dstart, dend){
+    var count = 0;
     var fDate,lDate,cDate;
     fDate = dstart.split('/');
     lDate = dend.split('/');
@@ -21,50 +22,80 @@ function filterCity(trip, city, dstart, dend){
         if(trip.trip_name_city === city){
             cDate = trip.tour_date.split('/')
             if(cDate[2] < lDate[2] && cDate[2] > fDate[2]){
+                count++;
                 appendTrips(trip);
             }
             else if(cDate[2] == lDate[2] && cDate[2] == fDate[2]){
-                if (cDate[1] < lDate[1] && cDate[1] > fDate[1])
+                if (cDate[1] < lDate[1] && cDate[1] > fDate[1]){
+                    count++;
                     appendTrips(trip);
+                }
                 else if(cDate[1] == lDate[1] && cDate[1] == fDate[1]){
-                    if(cDate[0] == fDate[0] && cDate[0] < lDate[0])
+                    if(cDate[0] == fDate[0] && cDate[0] < lDate[0]){
+                        count++;
                         appendTrips(trip);
-                    else if(cDate[0] > fDate[0] && cDate[0] < lDate[0])
+                    }
+                    else if(cDate[0] > fDate[0] && cDate[0] < lDate[0]){
+                        count++;
                         appendTrips(trip);
-                    else if(cDate[0] > fDate[0] && cDate[0] == lDate[0])
+                    }
+                    else if(cDate[0] > fDate[0] && cDate[0] == lDate[0]){
+                        count++;
                         appendTrips(trip);
-                    else if(cDate[0] == fDate[0] && cDate[0] == lDate[0])
+                    }
+                    else if(cDate[0] == fDate[0] && cDate[0] == lDate[0]){
+                        count++;
                         appendTrips(trip);
+                    }
                 }
                 else if(cDate[1] < lDate[1] && cDate[1] == fDate[1]){
-                    if(cDate[0] >= fDate[0])
+                    if(cDate[0] >= fDate[0]){
+                        count++;
                         appendTrips(trip);
+                    }
                 }
                 else if(cDate[1] == lDate[1] && cDate[1] > fDate[1]){
-                    if(cDate[0] <= lDate[0])
+                    if(cDate[0] <= lDate[0]){
+                        count++;
                         appendTrips(trip);
+                    }
                 }
             }
             else if(cDate[2] < lDate[2] && cDate[2] == fDate[2]){
-                if (cDate[1] > fDate[1])
+                if (cDate[1] > fDate[1]){
+                    count++;
                     appendTrips(trip);
+                }
                 else if(cDate[1] == fDate[1]){
-                    if(cDate[0] >= fDate[0])
+                    if(cDate[0] >= fDate[0]){
+                        count++;
                         appendTrips(trip);
+                    }
                 }
             }
             else if(cDate[2] == lDate[2] && cDate[2] > fDate[2]){
-                if (cDate[1] < lDate[1])
+                if (cDate[1] < lDate[1]){
+                    count++;
                     appendTrips(trip);
+                }
                 else if(cDate[1] == lDate[1]){
-                    if(cDate[0] <= lDate[0])
+                    if(cDate[0] <= lDate[0]){
+                        count++;
                         appendTrips(trip);
+                    }
                 }
             }
         }
-    });
+    })
+    if(count === 0){
+        $("#All-trips").append(
+            '<p>No result for this serch.<br>' +
+            '<a href="trips.html">back to search page</a>' +
+            '</p>'
+        );
+    }
 }
-
+    
 function appendTrips(trip){
     var html =  '<section class="col mb-4">';
     html += '<div class="card bg-light text-dark">';
