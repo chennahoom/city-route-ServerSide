@@ -32,7 +32,6 @@ function operationsListenersReg(){
             email: $("#exampleInputEmail1").val(),
             phone: $("#examplePhone").val(),
         }
-        console.log(info);
         addUser(info);
     });
 };
