@@ -22,22 +22,12 @@ body {
   height: 100%;
 }
 
-/* #logo {
-    padding-left: 50px;
-    background: url('../images/logo.png') 0 50%/contain no-repeat;
-} */
-
 /* ----------------header--------------- */
 .nav-logo {
   height: 75px;
   width: 90px;
 }
 
-/* #mainTripsContainer header{
-    width: 100%;
-    padding-top: 1px;
-    background-color: white;
-} */
 
 .profile {
   display: block;
@@ -94,9 +84,7 @@ form {
   background-size: 100px;
 }
 
-/* login  - TODO*/
 
-/* בחירת טיול */
 .form-control,
 #submit {
   margin-left: 20px;
@@ -135,40 +123,17 @@ form {
   height: 270px;
 }
 
-/* .menuBar{
-    margin-top: 10px;
-} */
 
-/* #submit-temp{
-    width: 80px;
-    display: flex;
-    justify-content: space-around;
-    display: none;
-} */
-
-/* #submit {
-    width: 80px;
-    display: flex;
-    justify-content: space-around;
-} */
-
-/* #put-post-form,
-#get-delete-form {
-    display:none;
-} */
 
 .join-trip {
-  /* display: block; */
   margin-left: auto;
   width: 100px;
   justify-content: space-around;
 }
 
-/* .g-signin2{
-    margin-top: 50px;
-} */
 
-/* ----------------maps--------------- */
+
+/* ----------------map--------------- */
 
 #mapid {
   height: 400px;
@@ -189,37 +154,10 @@ form {
     position: absolute;
     width: 38rem;
     left: 35%;
-    /* border:2px dashed blue; */
-
+}
 .card-title#tour-guide{
     font-size: 25px;
 }
-/* ----------------responsive--------------- */
-
-/* Mobile */
-/* @media (max-width: 700px) {
-    body#mainTripsContainer .card-body {
-        display: none;
-    }
-    body .card-img-overlay {
-        color: #FFF;
-        background: rgba(0,0,0,0.3);
-        display: flex;
-        justify-content: flex-end;
-        align-items: self-start;
-        flex-flow: column;
-    }
-    .card-title{
-        font-size: 24px;
-        font-weight: 700;
-    }
-} */
-/* Desktop */
-/* @media (min-width: 700px) {
-    body .card-img-overlay {
-        display: none;
-    }
-} */
 
 #num-tickets {
   margin-left: 10px;
