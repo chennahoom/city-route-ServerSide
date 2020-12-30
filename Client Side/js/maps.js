@@ -94,22 +94,15 @@ function drawLocationsOnMap(locations){
         }
 
     function numOfTickets(trip, numTickets){
-        const info = {
-            spaces_left: parseInt(trip.spaces_left) - parseInt(numTickets),
-            // my_trips: my_trips + trip.id,
-        }
-        if(numTickets === 1 && info.spaces_left === 1){
-            console.log("gggg");
+        if (trip.spaces_left >= numTickets){
+            const info = {
+                spaces_left: parseInt(trip.spaces_left) - parseInt(numTickets),
+            }
             updateSpace(trip.id, info);
-        }
-        else if(numTickets >= info.spaces_left){
-            $("#ticketsError").html("Sold Out").addClass("error-msg");
-            $("#ticketsError").css("color","red");
         }
         else{
-            console.log("gggg");
-
-            updateSpace(trip.id, info);
+            $("#ticketsError").html("Sold Out").addClass("error-msg");
+            $("#ticketsError").css("color","red");
         }
     }
 
