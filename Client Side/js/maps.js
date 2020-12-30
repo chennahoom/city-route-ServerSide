@@ -27,8 +27,6 @@ function drawLocationsOnMap(locations){
             type: 'PUT',
             data: info,
             success: function(data) {
-                
-                console.log("ariel here");
                 getUser(localStorage.getItem("user_id"));    
             }
         });
@@ -101,6 +99,7 @@ function drawLocationsOnMap(locations){
 
     function numOfTickets(trip, numTickets){
         if (trip.spaces_left >= numTickets){
+            
             const info = {
                 spaces_left: parseInt(trip.spaces_left) - parseInt(numTickets),
             }
