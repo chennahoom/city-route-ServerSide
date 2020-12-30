@@ -8,7 +8,9 @@ function addUser(info) {
         type: 'POST',
         data: info,
         success: function(user) {
-            $(location).attr('href',"../trips.html"); //TODO: need to change this to homePage
+            console.log(user.id);
+            localStorage.setItem("user_id", user.id);
+            $(location).attr('href',"./trips.html");
         }
     });
 }

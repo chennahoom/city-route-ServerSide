@@ -87,7 +87,7 @@ function appendTrips(trip){
     $("#All-trips").append(html);
     $(".join-trip").click(function(event){
         event.preventDefault();
-        localStorage.setItem("trip_id", this.id);
+
         window.location.replace("./maps.html")
       });
 }

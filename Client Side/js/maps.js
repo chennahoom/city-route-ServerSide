@@ -21,21 +21,49 @@ function drawLocationsOnMap(locations){
         }
     }
 
-    function upateSpace(tripId, info){
-        // url: `http://localhost:5000/api/trips/${tripId}/${amountOfTickets}
+    function updateSpace(tripId, info){
         $.ajax({
             url: `http://localhost:5000/api/trips/${tripId}`,
             type: 'PUT',
             data: info,
             success: function(data) {
-                updateTrip(data);    
+                console.log("ariel here");
+                getUser(data);    
+            }
+        });
+    }
+
+    function getUser(userId){
+        console.log("chen here");
+        $.ajax({
+            url: `http://localhost:5000/api/users/${userId}`,
+            type: 'GET',
+            success: function(data) {
+                console.log("ariel here");
+                updateUser(data);    
+            }
+        });
+    }
+
+    function updateUser(user){
+        console.log("Im here");
+        var info = parseInt(user.my_trips) + parseInt(localStorage.getItem(trip_id));
+        console.log(info);
+        updateUsers(user, info);
+    }
+
+    function updateUsers(userId, info){        
+        $.ajax({
+            url: `http://localhost:5000/api/trips/${userId}`,
+            type: 'PUT',
+            data: info,
+            success: function(data) {
+                // updateTrip(data); 
+                window.location.replace("./article.html")   
             }
         });
     }
     
-    function updateTrip(data){
-        window.location.replace("./article.html")
-    }
 
    function getTripById(tripId) {
     $.ajax({
@@ -68,13 +96,22 @@ function drawLocationsOnMap(locations){
     function numOfTickets(trip, numTickets){
         const info = {
             spaces_left: parseInt(trip.spaces_left) - parseInt(numTickets),
+            // my_trips: my_trips + trip.id,
         }
-        if(info.spaces_left === 0){
+        if(numTickets === 1 && info.spaces_left === 1){
+            console.log("gggg");
+            updateSpace(trip.id, info);
+        }
+        else if(numTickets >= info.spaces_left){
+            console.log("gggg");
+
             $("#ticketsError").html("Sold Out").addClass("error-msg");
             $("#ticketsError").css("color","red");
         }
         else{
-            upateSpace(trip.id, info);
+            console.log("gggg");
+
+            updateSpace(trip.id, info);
         }
     }
 
