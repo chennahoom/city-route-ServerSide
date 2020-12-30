@@ -103,8 +103,6 @@ function drawLocationsOnMap(locations){
             updateSpace(trip.id, info);
         }
         else if(numTickets >= info.spaces_left){
-            console.log("gggg");
-
             $("#ticketsError").html("Sold Out").addClass("error-msg");
             $("#ticketsError").css("color","red");
         }
