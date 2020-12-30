@@ -107,7 +107,8 @@ function drawLocationsOnMap(locations){
             updateSpace(trip.id, info);
         }
         else{
-            $("#ticketsError").html("Sold Out").addClass("error-msg");
+            //TODO: need to add here the phone number of the tour guide
+            $("#ticketsError").html(`Sold Out. You can talk with the tour guide ${trip.tour_guide} on number:`).addClass("error-msg");
             $("#ticketsError").css("color","red");
         }
     }
