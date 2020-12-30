@@ -27,38 +27,44 @@ function drawLocationsOnMap(locations){
             type: 'PUT',
             data: info,
             success: function(data) {
+                
                 console.log("ariel here");
-                getUser(data);    
+                getUser(localStorage.getItem("user_id"));    
             }
         });
     }
 
     function getUser(userId){
-        console.log("chen here");
         $.ajax({
             url: `http://localhost:5000/api/users/${userId}`,
             type: 'GET',
             success: function(data) {
-                console.log("ariel here");
                 updateUser(data);    
             }
         });
     }
 
     function updateUser(user){
-        console.log("Im here");
-        var info = parseInt(user.my_trips) + parseInt(localStorage.getItem(trip_id));
-        console.log(info);
-        updateUsers(user, info);
+        var mytrips = [];
+        
+        $.each(user.my_trips, function(index){
+            mytrips[index] = user.my_trips[index];
+        })
+        var new_trip = localStorage.getItem("trip_id");
+        mytrips.push(new_trip);
+;
+        const info = {
+            my_trips: mytrips,
+        }
+        updateUsers(user.id, info);
     }
 
     function updateUsers(userId, info){        
         $.ajax({
-            url: `http://localhost:5000/api/trips/${userId}`,
+            url: `http://localhost:5000/api/users/${userId}`,
             type: 'PUT',
             data: info,
             success: function(data) {
-                // updateTrip(data); 
                 window.location.replace("./article.html")   
             }
         });
