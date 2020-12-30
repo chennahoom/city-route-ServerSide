@@ -72,14 +72,14 @@ function appendTrips(trip){
     html += '<h5 class="card-title">'+ trip.tour_date +'</h5>';
     html += '<p class="card-text">'+ trip.stops +'</p>';
     html += ' <p class="card-text">' +
-        'tour ID: ' + trip.id + '<br>' +
-        'tour guide: ' + trip.tour_guide + '<br>' +
-        'trip name city: '  + trip.trip_name_city + '<br>' +
-        'tour time: ' + trip.tour_time + '<br>' +
-        'start time: ' + trip.start_time + '<br>' +
-        'spaces left: ' + trip.spaces_left + '<br>' +
-        '<button class=join-trip id='+ trip.id+' >Join Trip</button>'+
-        '</br></p>';
+            'tour ID: ' + trip.id + '<br>' +
+            'tour guide: ' + trip.tour_guide + '<br>' +
+            'trip name city: '  + trip.trip_name_city + '<br>' +
+            'tour time: ' + trip.tour_time + '<br>' +
+            'start time: ' + trip.start_time + '<br>' +
+            'spaces left: ' + trip.spaces_left + '<br>' +
+            '<button class=join-trip id='+ trip.id+' >Join Trip</button>'+
+            '</br></p>';
     html += '</div>';
     html += '</div>';
     html += '</section>';
