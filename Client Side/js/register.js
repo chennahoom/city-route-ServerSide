@@ -8,8 +8,8 @@ function addUser(info) {
         type: 'POST',
         data: info,
         success: function(user) {
-            console.log(user.id);
             localStorage.setItem("user_id", user.id);
+            localStorage.setItem("user_type", info.type_of_user);
             $(location).attr('href',"./trips.html");
         }
     });

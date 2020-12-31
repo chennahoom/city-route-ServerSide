@@ -2,6 +2,11 @@ $(function() {
     searchResult();
 });
 
+//function getAllTripCity(city, dstart,dend){
+// fetch('http://localhost:5000/api/trips')
+//   .then(response => response.json())
+//   .then(trips =>  filterCity(trips, city, dstart,dend););
+
 function getAllTripCity(city, dstart,dend){
     $.ajax({
         url: 'http://localhost:5000/api/trips',
@@ -89,8 +94,8 @@ function filterCity(trip, city, dstart, dend){
     })
     if(count === 0){
         $("#All-trips").append(
-            '<p>No result for this serch.<br>' +
-            '<a href="trips.html">back to search page</a>' +
+            '<p>No results for this search.<br>' +
+            '<a href="trips.html">Try different dates?</a>' +
             '</p>'
         );
     }
@@ -104,7 +109,7 @@ function appendTrips(trip){
     html += '<p class="card-text">'+ trip.stops +'</p>';
     html += ' <p class="card-text">' +
             'tour ID: ' + trip.id + '<br>' +
-            'tour guide: ' + trip.tour_guide + '<br>' +
+            'tour guide: ' + trip.tour_guide_id + '<br>' +
             'trip name city: '  + trip.trip_name_city + '<br>' +
             'tour time: ' + trip.tour_time + '<br>' +
             'start time: ' + trip.start_time + '<br>' +

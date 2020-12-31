@@ -31,7 +31,7 @@ exports.tripController = {
                 trip.id = result+1;
             }
         }).then((result)=>{
-            trip.tour_guide = body.tour_guide
+            trip.tour_guide_id = body.tour_guide_id
             trip.trip_name_city = body.trip_name_city
             trip.tour_date = body.tour_date 
             trip.start_time = body.start_time   
@@ -56,8 +56,8 @@ exports.tripController = {
         if (body.locations){
             trip.locations = body.locations
         }
-        if(body.tour_guide){
-            trip.tour_guide = body.tour_guide
+        if(body.tour_guide_id){
+            trip.tour_guide_id = body.tour_guide_id
         }
         if(body.trip_name_city){
             trip.trip_name_city = body.trip_name_city

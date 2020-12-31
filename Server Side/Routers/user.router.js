@@ -10,9 +10,7 @@ userRouter.get('/:id', userController.getUser);
 userRouter.post('/', userController.addUser);
 userRouter.put('/:id', userController.updateUser);
 userRouter.delete('/:id', userController.deleteUser);
-
-
-
+userRouter.get('/:id/:role', userController.checkUserRole);
 
 
 

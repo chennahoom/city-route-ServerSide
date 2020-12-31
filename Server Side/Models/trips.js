@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 
 const tripSchema = new Schema({
     id: { type: Number },
-    tour_guide: { type: String },
+    tour_guide_id: { type: Number },
     trip_name_city: { type: String },
     tour_date: { type: String },
     tour_time: { type: String },

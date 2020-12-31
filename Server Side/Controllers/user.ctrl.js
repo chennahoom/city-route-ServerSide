@@ -18,9 +18,17 @@ exports.userController = {
             .then(docs => { res.json(docs) })
             .catch(err => console.log(`Error getting the data from DB: ${err}`));
     },
+
     getUser(req, res) {
         User.findOne({ id: req.params.id })
             .then(docs => { res.json(docs) })
+            .catch(err => console.log(`Error getting the data from DB: ${err}`));
+    },
+
+    checkUserRole(req, res) {
+        User.findOne({ id: req.params.id,
+                       type_of_user: req.params.role})
+            .then(docs => { res.json({answer: docs !== null })})
             .catch(err => console.log(`Error getting the data from DB: ${err}`));
     },
 

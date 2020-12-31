@@ -7,13 +7,14 @@ zoomOffset: -1,
 accessToken: 'pk.eyJ1IjoiY2hlbm5haG9vbSIsImEiOiJja2o1cHVmM2E2MGQ3MnFsYmp5aG9lY2E4In0.9ENsXnIeUpwpf30O2vAgHA'
 }).addTo(mymap);
 
-function drawLocationsOnMap(locations){
+function drawLocationsOnMap(locations,stops){
+        const stopsArray = stops.split(',');
         if(locations && locations.length > 0) {
             const latlngs = [];
-            locations.forEach((location,index) => {
+            locations.forEach((location, index) => {
                     const marker = L.marker(location).addTo(mymap);
                     latlngs.push(marker.getLatLng());
-                    marker.bindPopup(`<b>Stop ${index + 1}</b>`).openPopup();
+                    marker.bindPopup(`<b>Stop ${stopsArray[index]}</b>`).openPopup();
             })
 
             const polyline = L.polyline(latlngs, {color: 'green'}).addTo(mymap);
@@ -73,10 +74,10 @@ function drawLocationsOnMap(locations){
     $.ajax({
         url: `http://localhost:5000/api/trips/${tripId}`,
         type: 'GET',
-        success: function(trip) {
-            drawLocationsOnMap(trip.locations)
+        success: function(trip){
+            getTourGuideById(trip.tour_guide_id)
+            drawLocationsOnMap(trip.locations,trip.stops)
             appendCity(trip.trip_name_city)
-            appendTourGuide(trip.tour_guide)
             appendTourDate(trip.tour_date)
             appendTourTime(trip.tour_time)
             appendTourStartTime(trip.start_time)
@@ -87,15 +88,32 @@ function drawLocationsOnMap(locations){
     });
     }
 
-    function getTripByIdNumTickets(tripId,numTickets) {
-        $.ajax({
-            url: `http://localhost:5000/api/trips/${tripId}`,
-            type: 'GET',
-            success: function(trip) {
-                numOfTickets(trip , numTickets)
-            }
-        });
+    function getTripByIdNumTickets(tripId, numTickets) {
+        if (localStorage.getItem("user_type") === "Traveler") {
+            $.ajax({
+                url: `http://localhost:5000/api/trips/${tripId}`,
+                type: 'GET',
+                success: function(trip) {
+                    numOfTickets(trip , numTickets)
+                }
+            });
+        
+        }else {
+           alert("You don't have the permission to be added to this trip. Please contact admin.");
         }
+ }
+
+    
+    function getTourGuideById(userId) {
+        $.ajax({
+             url: `http://localhost:5000/api/users/${userId}`,
+             tpe: 'GET',
+                success: function(userData) {
+                 guideDetails = userData;
+                 appendTourGuide(userData.full_name)
+                }
+            });
+    }
 
     function numOfTickets(trip, numTickets){
         if (trip.spaces_left >= numTickets){
@@ -106,8 +124,7 @@ function drawLocationsOnMap(locations){
             updateSpace(trip.id, info);
         }
         else{
-            //TODO: need to add here the phone number of the tour guide
-            $("#ticketsError").html(`Sold Out. You can talk with the tour guide ${trip.tour_guide} on number:`).addClass("error-msg");
+            $("#ticketsError").html(`This trip is sold out. You can try contacting our tour guide, ${guideDetails.full_name} at ${guideDetails.phone}.`).addClass("error-msg");
             $("#ticketsError").css("color","red");
         }
     }
@@ -116,8 +133,8 @@ function drawLocationsOnMap(locations){
         $("#tour-city").append(trip_name_city);
     }
 
-    function appendTourGuide(tour_guide){
-        $("#tour-guide").append(tour_guide);
+    function appendTourGuide(tour_guide_id){
+        $("#tour-guide").append(tour_guide_id);
     }
 
     function appendTourDate(tour_date){
