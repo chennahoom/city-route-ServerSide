@@ -1,7 +1,7 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-
-const tripSchema = new Schema({
+const tripSchema = new Schema(
+  {
     id: { type: Number },
     tour_guide_id: { type: Number },
     trip_name_city: { type: String },
@@ -9,11 +9,10 @@ const tripSchema = new Schema({
     tour_time: { type: String },
     start_time: { type: String },
     spaces_left: { type: Number },
-    locations: { type: Array },
-    stops: { type: String },
+  },
+  { collection: "trips" }
+);
 
-}, { collection: 'trips' });
-
-const Trip = model('Trip', tripSchema);
+const Trip = model("Trip", tripSchema);
 
 module.exports = Trip;
