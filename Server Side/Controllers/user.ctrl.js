@@ -44,9 +44,7 @@ exports.userController = {
             }
         }).then((result)=>{
             user.full_name = body.full_name
-            user.type_of_user = body.type_of_user
-            user.about_me = body.about_me 
-            user.languages = body.languages   
+            user.type_of_user = body.type_of_user   
             user.email = body.email   
             user.phone = body.phone
             user.my_trips = body.my_trips
@@ -69,14 +67,6 @@ exports.userController = {
         if(body.type_of_user){
             user.type_of_user = body.type_of_user
         }
-        if (body.about_me){
-            user.about_me = body.about_me
-        }
-
-        if (body.languages){
-            user.languages = body.languages
-        }
-
         if (body.email){
             user.email = body.email
         }
