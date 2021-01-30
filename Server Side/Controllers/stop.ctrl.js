@@ -3,19 +3,18 @@ const Stop = require("../Models/stops");
 exports.stopController = {
   getStops(req, res) {
     const { city } = req.query;
-    
-    const filter = {}
 
-    if(city){
+    const filter = {};
+
+    if (city) {
       filter.stop_region = city;
     }
 
-      Stop.find(filter)
-        .then((docs) => {
-          res.json(docs);
-        })
-        .catch((err) => console.log(`Error getting the data from DB: ${err}`));
-    }
+    Stop.find(filter)
+      .then((docs) => {
+        res.json(docs);
+      })
+      .catch((err) => console.log(`Error getting the data from DB: ${err}`));
   },
 
   getStop(req, res) {
