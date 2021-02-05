@@ -51,7 +51,6 @@ exports.userController = {
 
   addUser(req, res) {
     const user = new User();
-    // let usersLen = "";
 
     User.find({}).then((docs) => {
       const usersLen = docs.length;
@@ -67,48 +66,8 @@ exports.userController = {
         .save()
         .then(() => res.json({ id: `${user.id}` }))
         .catch((err) => console.log(err));
-
-      console.log(usersLen);
     });
   },
-
-  // addUser(req, res) {
-  //   let usersLen = "";
-
-  //   User.find({}).then((docs) => {
-  //     usersLen = docs.length;
-  //   });
-
-  //   startId = getUserLength();
-  //   startId++;
-  //   console.log(User.length);
-
-  //   const id = usersLen + 1;
-  //   const user = new User();
-  //   user = { ...req.body, id };
-
-  //   user.id = id;
-  //   user.full_name = body.full_name;
-  //   user.type_of_user = body.type_of_user;
-  //   user.email = body.email;
-  //   user.phone = body.phone;
-  //   user.my_trips = body.my_trips;
-  //   user
-  //     .save()
-
-  //     .then(() => res.json({ id: `${user.id}` }))
-  //     .catch((err) => console.log(err));
-
-  //   let message = `Created user with ID: ${id}`;
-  //   User.push(user);
-  //   res.json({
-  //     User: user,
-  //     message: message,
-  //   });
-  //   } catch (err) {
-  //     res.status(500).json({ message: "Server Error", users: [] });
-  //   }
-  // },
 
   updateUser(req, res) {
     const { body } = req;

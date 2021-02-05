@@ -26,20 +26,17 @@ exports.stopController = {
   },
 
   addStop(req, res) {
-    const { body } = req;
     const stop = new Stop();
 
-    Stop.countDocuments({}, (err, result) => {
-      if (err) console.log(err);
-      else {
-        stop.id = result + 1;
-      }
-    }).then((result) => {
-      stop.stop_region = body.stop_region;
-      stop.stop_name = body.stop_name;
-      stop.location_coords = body.location_coords;
-      stop.is_ticket_needed = body.is_ticket_needed;
-      stop.discount_tickets_num = body.discount_tickets_num;
+    Stop.find({}).then((docs) => {
+      const stopsLen = docs.length;
+
+      stop.id = stopsLen + 1;
+      stop.stop_region = req.body.stop_region;
+      stop.stop_name = req.body.stop_name;
+      stop.location_coords = req.body.location_coords;
+      stop.is_ticket_needed = req.body.is_ticket_needed;
+      stop.discount_tickets_num = req.body.discount_tickets_num;
 
       stop
         .save()
@@ -47,6 +44,7 @@ exports.stopController = {
         .catch((err) => console.log(err));
     });
   },
+
   updateStop(req, res) {
     const { body } = req;
     const stop = {};

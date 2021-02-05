@@ -26,21 +26,18 @@ exports.tripController = {
   },
 
   addTrip(req, res) {
-    const { body } = req;
     const trip = new Trip();
 
-    Trip.countDocuments({}, (err, result) => {
-      if (err) console.log(err);
-      else {
-        trip.id = result + 1;
-      }
-    }).then((result) => {
-      trip.tour_guide_id = body.tour_guide_id;
-      trip.trip_name_city = body.trip_name_city;
-      trip.tour_date = body.tour_date;
-      trip.start_time = body.start_time;
-      trip.tour_time = body.tour_time;
-      trip.spaces_left = body.spaces_left;
+    Trip.find({}).then((docs) => {
+      const tripsLen = docs.length;
+
+      trip.id = tripsLen + 1;
+      trip.tour_guide_id = req.body.tour_guide_id;
+      trip.trip_name_city = req.body.trip_name_city;
+      trip.tour_date = req.body.tour_date;
+      trip.start_time = req.body.start_time;
+      trip.tour_time = req.body.tour_time;
+      trip.spaces_left = req.body.spaces_left;
 
       trip
         .save()
@@ -48,12 +45,12 @@ exports.tripController = {
         .catch((err) => console.log(err));
     });
   },
+
   updateTrip(req, res) {
     const { body } = req;
     const trip = {};
     trip.id = req.params.id;
 
-    
     if (body.tour_guide_id) {
       trip.tour_guide_id = body.tour_guide_id;
     }
@@ -75,7 +72,6 @@ exports.tripController = {
     if (body.spaces_left) {
       trip.spaces_left = body.spaces_left;
     }
-
 
     const query = { id: req.params.id };
 
