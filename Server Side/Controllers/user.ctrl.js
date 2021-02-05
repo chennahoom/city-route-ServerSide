@@ -49,12 +49,11 @@ exports.userController = {
     const { body } = req;
     const user = new User();
 
-    User.countDocuments({}, (err, result) => {
+    then((result) => {
       if (err) console.log(err);
       else {
         user.id = result + 1;
       }
-    }).then((result) => {
       user.full_name = body.full_name;
       user.type_of_user = body.type_of_user;
       user.email = body.email;
