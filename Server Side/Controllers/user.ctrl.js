@@ -1,10 +1,6 @@
 const User = require("../Models/users");
 
 exports.userController = {
-  generateId() {
-    startId++;
-    return startId;
-  },
   getUsers(req, res) {
     if (Object.keys(req.query).length !== 0) {
       let query = {};
@@ -18,10 +14,18 @@ exports.userController = {
     User.find({})
       .then((docs) => {
         res.json(docs);
+        // console.log(docs.length);
       })
       .catch((err) => console.log(`Error getting the data from DB: ${err}`));
   },
 
+  getUserLength() {
+    User.find({}).then((docs) => {
+      console.log(docs);
+      //res.json(docs);
+      // console.log(docs.length);
+    });
+  },
   getUser(req, res) {
     User.findOne({ id: req.params.id })
       .then((docs) => {
@@ -46,26 +50,65 @@ exports.userController = {
   },
 
   addUser(req, res) {
-    const { body } = req;
     const user = new User();
+    // let usersLen = "";
 
-    then((result) => {
-      if (err) console.log(err);
-      else {
-        user.id = result + 1;
-      }
-      user.full_name = body.full_name;
-      user.type_of_user = body.type_of_user;
-      user.email = body.email;
-      user.phone = body.phone;
-      user.my_trips = body.my_trips;
+    User.find({}).then((docs) => {
+      const usersLen = docs.length;
+
+      user.id = usersLen + 1;
+      user.full_name = req.body.full_name;
+      user.type_of_user = req.body.type_of_user;
+      user.email = req.body.email;
+      user.phone = req.body.phone;
+      user.my_trips = req.body.my_trips;
 
       user
         .save()
         .then(() => res.json({ id: `${user.id}` }))
         .catch((err) => console.log(err));
+
+      console.log(usersLen);
     });
   },
+
+  // addUser(req, res) {
+  //   let usersLen = "";
+
+  //   User.find({}).then((docs) => {
+  //     usersLen = docs.length;
+  //   });
+
+  //   startId = getUserLength();
+  //   startId++;
+  //   console.log(User.length);
+
+  //   const id = usersLen + 1;
+  //   const user = new User();
+  //   user = { ...req.body, id };
+
+  //   user.id = id;
+  //   user.full_name = body.full_name;
+  //   user.type_of_user = body.type_of_user;
+  //   user.email = body.email;
+  //   user.phone = body.phone;
+  //   user.my_trips = body.my_trips;
+  //   user
+  //     .save()
+
+  //     .then(() => res.json({ id: `${user.id}` }))
+  //     .catch((err) => console.log(err));
+
+  //   let message = `Created user with ID: ${id}`;
+  //   User.push(user);
+  //   res.json({
+  //     User: user,
+  //     message: message,
+  //   });
+  //   } catch (err) {
+  //     res.status(500).json({ message: "Server Error", users: [] });
+  //   }
+  // },
 
   updateUser(req, res) {
     const { body } = req;
