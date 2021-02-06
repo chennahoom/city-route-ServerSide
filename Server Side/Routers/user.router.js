@@ -7,6 +7,7 @@ module.exports = { userRouter };
 
 userRouter.get('/', userController.getUsers);
 userRouter.post('/email', userController.getUserByEmail);
+userRouter.post('/trips', userController.addTrip);
 userRouter.get('/:id', userController.getUser);
 userRouter.post('/', userController.addUser);
 userRouter.put('/:id', userController.updateUser);

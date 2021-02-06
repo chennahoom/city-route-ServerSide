@@ -69,6 +69,13 @@ exports.userController = {
     });
   },
 
+  addTrip(req, res) {
+    const { user, tripId } = req.body;
+    User.updateOne({ email: user.email }, { $addToSet: { my_trips: tripId } })
+      .then((data) => res.json(data))
+      .catch((err) => console.log(err));
+  },
+
   updateUser(req, res) {
     const { body } = req;
     const user = {};
