@@ -36,7 +36,6 @@ exports.stopController = {
       stop.stop_name = req.body.stop_name;
       stop.location_coords = req.body.location_coords;
       stop.is_ticket_needed = req.body.is_ticket_needed;
-      stop.discount_tickets_num = req.body.discount_tickets_num;
 
       stop
         .save()
@@ -61,10 +60,6 @@ exports.stopController = {
     }
     if (body.is_ticket_needed) {
       stop.is_ticket_needed = body.is_ticket_needed;
-    }
-
-    if (body.discount_tickets_num) {
-      stop.discount_tickets_num = body.discount_tickets_num;
     }
 
     const query = { id: req.params.id };

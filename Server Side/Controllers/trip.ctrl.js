@@ -34,10 +34,11 @@ exports.tripController = {
       trip.id = tripsLen + 1;
       trip.tour_guide_id = req.body.tour_guide_id;
       trip.trip_name_city = req.body.trip_name_city;
+      trip.stops=req.body.stops;
       trip.tour_date = req.body.tour_date;
       trip.start_time = req.body.start_time;
       trip.tour_time = req.body.tour_time;
-      trip.spaces_left = req.body.spaces_left;
+      trip.ticketsBought = req.body.ticketsBought;
 
       trip
         .save()
@@ -57,6 +58,9 @@ exports.tripController = {
     if (body.trip_name_city) {
       trip.trip_name_city = body.trip_name_city;
     }
+    if (body.stops){
+      trip.stops = body.stops;
+    }
     if (body.tour_date) {
       trip.tour_date = body.tour_date;
     }
@@ -69,8 +73,8 @@ exports.tripController = {
       trip.tour_time = body.tour_time;
     }
 
-    if (body.spaces_left) {
-      trip.spaces_left = body.spaces_left;
+    if (body.ticketsBought) {
+      trip.ticketsBought = body.ticketsBought;
     }
 
     const query = { id: req.params.id };

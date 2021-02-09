@@ -5,10 +5,11 @@ const tripSchema = new Schema(
     id: { type: Number },
     tour_guide_id: { type: Number },
     trip_name_city: { type: String },
+    stops: {type : Array},
     tour_date: { type: String },
     tour_time: { type: String },
     start_time: { type: String },
-    spaces_left: { type: Number },
+    ticketsBought: { type: Number },
   },
   { collection: "trips" }
 );
