@@ -3,8 +3,8 @@ const { Schema, model } = require("mongoose");
 const addressSchema = new Schema(
   [
     {
-      latitude: {type: Number},
-      longitude: {type: Number},
+      lat: {type: Number},
+      lng: {type: Number},
     }
   ]
 );
