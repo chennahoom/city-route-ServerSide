@@ -52,10 +52,13 @@ exports.userController = {
   addUser(req, res) {
     const user = new User();
 
-    User.find({}).then((docs) => {
-      const usersLen = docs.length;
+    User.findOne({ email: req.body.email }).then((exitsUsers) => {
 
-      user.id = usersLen + 1;
+      if(exitsUsers){
+        return res.status(400).json({message: 'user with this email exists'})
+      }
+
+      user.id = Date.now(); // npm uuid
       user.full_name = req.body.full_name;
       user.type_of_user = req.body.type_of_user;
       user.email = req.body.email;
