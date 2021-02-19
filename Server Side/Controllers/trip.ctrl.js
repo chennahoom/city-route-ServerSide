@@ -1,4 +1,5 @@
 const Trip = require("../Models/trips");
+const User = require("../Models/users");
 
 exports.tripController = {
   getTrips(req, res) {
@@ -34,7 +35,7 @@ exports.tripController = {
       trip.id = tripsLen + 1;
       trip.tour_guide_id = req.body.tour_guide_id;
       trip.trip_name_city = req.body.trip_name_city;
-      trip.stops=req.body.stops;
+      trip.stops = req.body.stops;
       trip.tour_date = req.body.tour_date;
       trip.start_time = req.body.start_time;
       trip.tour_time = req.body.tour_time;
@@ -58,7 +59,7 @@ exports.tripController = {
     if (body.trip_name_city) {
       trip.trip_name_city = body.trip_name_city;
     }
-    if (body.stops){
+    if (body.stops) {
       trip.stops = body.stops;
     }
     if (body.tour_date) {
@@ -85,7 +86,16 @@ exports.tripController = {
   },
   deleteTrip(req, res) {
     Trip.deleteOne({ id: req.params.id })
-      .then(() => res.json({ id: `${req.params.id}` }))
+      .then(() => {
+        User.updateOne(
+          { id: req.body.id },
+          { $pull: { my_trips: +req.params.id } }
+        )
+          .then((r) => {
+            res.json({ id: `${req.params.id}` });
+          })
+          .catch((err) => console.log(`Error deleting trip from db: ${err}`));
+      })
       .catch((err) => console.log(`Error deleting trip from db: ${err}`));
   },
 };
