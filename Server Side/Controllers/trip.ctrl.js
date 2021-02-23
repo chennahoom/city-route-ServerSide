@@ -29,10 +29,13 @@ exports.tripController = {
   addTrip(req, res) {
     const trip = new Trip();
 
-    Trip.find({}).then((docs) => {
-      const tripsLen = docs.length;
+    Trip.findOne({id: req.body.id}).then((tripExists) => {
 
-      trip.id = tripsLen + 1;
+      if(tripExists){
+        return res.status(400).json({message: 'trip with this id exists'})
+      }
+
+      trip.id = Date.now();
       trip.tour_guide_id = req.body.tour_guide_id;
       trip.trip_name_city = req.body.trip_name_city;
       trip.stops = req.body.stops;

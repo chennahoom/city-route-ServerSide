@@ -58,7 +58,7 @@ exports.userController = {
         return res.status(400).json({message: 'user with this email exists'})
       }
 
-      user.id = Date.now(); // npm uuid
+      user.id = Date.now(); 
       user.full_name = req.body.full_name;
       user.type_of_user = req.body.type_of_user;
       user.email = req.body.email;
